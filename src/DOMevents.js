@@ -1,29 +1,34 @@
 import { onNavigate } from "./main.js";
-import { registerWithEmailFb } from "./firebaseMain.js";
+import { registerWithEmail } from './lib/controller.js';
+
 export const loginEvents = () => {
     //btn registrate in login
     console.log("login");
-    const registerBtn = document.getElementById('registerP');
-    registerBtn.addEventListener('click', () => {
+    const registerOption = document.getElementById('registerP');
+    registerOption.addEventListener('click', () => {
         onNavigate('/register');
         registerEvents();
 
     });
 
 };
-export const registerWithEmail = () => {
-    const inpuEmailValue = document.getElementById('inputEmail');
-    const inputPassword = document.getElementById('inputPassword');
-    const btnRegister = document.getElementById('buttonRegister');
-    btnRegister.addEventListener('click', registerWithEmailFb(inpuEmailValue.value, inputPassword.value));
-}
 
 export const registerEvents = () => {
     console.log("register");
-    //btn login in register
+    //evento del boton de resgitrar nuevo usuario
+    const btnRegister = document.getElementById('buttonRegister');
+    btnRegister.addEventListener('click', () => {
+        const inputEmailReg = document.getElementById('inputEmail');
+        const inputPasswordReg = document.getElementById('inputPassword');
+        registerWithEmail(inputEmailReg.value, inputPasswordReg.value);
+    });
+   
+    //evento de opcion volver a la vista login
     const loginBtn = document.getElementById('backLogin');
     loginBtn.addEventListener('click', () => {
         onNavigate('/');
         loginEvents();
     })
+   
 }
+
