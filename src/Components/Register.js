@@ -21,16 +21,15 @@ export const register = () => {
                 <p>Registrate con Google</p>
                 <img src="" alt="google logo">
                 <p>¿Ya tienes cuenta?</p>
-                <p>Iniciar Sesión</p>
+                <button id="backLogin">Iniciar Sesión</button>
             </div>
         </div>
     </section>   
      `;
-    
 
 
 
 
-     return registerTemplate;
+
+    return registerTemplate;
 }
-
