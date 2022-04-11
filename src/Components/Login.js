@@ -13,14 +13,12 @@ export const login = () => {
            <p>Iniciar sesion con google</p>
            <img src="" alt="google logo">
            <p>¿No tienes Cuenta?</p>
-           <p id="registerP" class="register">Registrate</p>
+           <button id="registerP" class="register">Registrate</button>
            </div>
          </div>
       </section>
     `;
 
-    
+
     return loginTemplate;
 }
-    const regist=document.getElementById('loginBtn');
-    regist.addEventListener('click',() => console.log("hola"));

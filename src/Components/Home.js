@@ -1,6 +1,6 @@
 export const home = () => {
-const homepage =
-`<section>
+    const homepage =
+        `<section>
 <header>
 <h1 class="headerTittle">Help Potatoes</h1>
 </header>
@@ -13,8 +13,8 @@ const homepage =
 };
 
 const post = () => {
-    const postToShare = 
-    `<section class="containerPostShare">
+    const postToShare =
+        `<section class="containerPostShare">
     <img src="">
     <p class="userName"></p>
     <img src="" class="threePoints">
