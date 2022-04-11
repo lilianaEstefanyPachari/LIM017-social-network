@@ -14,9 +14,9 @@ export const register = () => {
         <div class="registerContainer">
             <p>Registrate</p>
             <div>
-                <input type="texto" placeholder="Usuario">
-                <input type="texto" placeholder="Correo electrónico">
-                <input type="texto">
+                <input type="text" placeholder="Usuario">
+                <input type="email" id="inputEmail" placeholder="Correo electrónico">
+                <input type="password" id="inputPassword">
                 <button id="buttonRegister">Registrar</button>
                 <p>Registrate con Google</p>
                 <img src="" alt="google logo">
