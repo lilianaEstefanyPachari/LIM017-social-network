@@ -27,9 +27,11 @@ export const register = () => {
             <button id="backLogin" class="backpage">Iniciar Sesión</button>
             </div>
             <section id="modalEmailV" class="verificationEmailModal" style="display:none">
+            <div class="divContainerModal">
             <div class="containerModal">
             <p>Para verificar tu correo revisa tu bandeja de entrada</p>
             <button class="okaybtnModal" id="closeModal">Aceptar</button>
+            </div>
             </div>
             </section>
             

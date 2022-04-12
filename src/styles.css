@@ -150,20 +150,23 @@ body {
 
 /*fondo*/
 
+
 .verificationEmailModal {
     position: fixed;
     z-index: 1;
     left: 0;
     top: 0;
-    padding-top: 70%;
-    align-items: center;
-    justify-content: center;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
-
+.divContainerModal{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
 
 /*modal container*/
 
