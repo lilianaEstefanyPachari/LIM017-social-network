@@ -7,7 +7,11 @@ export const registerWithEmail = (email, password, name) => {
             sendEmailfb()
                 .then(() => {
                     const showModalEmailVerification = document.getElementById('modalEmailV');
+                    const hideModal = document.getElementById('closeModal');
                     showModalEmailVerification.style.display = 'block';
+                    hideModal.addEventListener('click', () => {
+                        showModalEmailVerification.style.display = 'none';
+                    })
                 })
         })
         .catch((error) => {

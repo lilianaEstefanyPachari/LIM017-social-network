@@ -1,19 +1,21 @@
 export const login = () => {
     const loginTemplate = `
       <section class="loginContainer">
-         <div>
+         <div class="helpPotatoesTittle">
             <h1> Help Potatoes</h1>
          </div>
-         <div class="inputContainer"> 
-           <p>Iniciar sesion</p>
-           <div>
-           <input type="text" placeholder="Correo electronico" id="inputEmail">
+         <div class="loginContainer"> 
+           <p class="loginTittle">Iniciar sesión</p>
+           <div class="inputContainer">
+           <input type="text" placeholder="Correo electrónico" id="inputEmail">
            <input type="text" placeholder="Contraseña" id="inputPass">
-           <button id="loginBtn"> Iniciar Sesion </button>
-           <p>Iniciar sesion con google</p>
-           <img src="" alt="google logo">
-           <p>¿No tienes Cuenta?</p>
-           <button id="registerP" class="register">Registrate</button>
+           <button id="loginBtn" class="buttonnextPage"> Iniciar Sesión </button>
+           </div>
+           <div class="withGoogle">
+           <p class="pGoogle">Iniciar sesión con google</p>
+           <img src="./img/googleLogo.png" class="logoGoogle">
+           <p class="pGoogle">¿No tienes cuenta?</p>
+           <button id="registerP" class="backpage">Regístrate</button>
            </div>
          </div>
       </section>

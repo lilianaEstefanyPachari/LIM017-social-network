@@ -1,0 +1,189 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap');
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    font-family: 'Poppins';
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/*login*/
+
+.helpPotatoesTittle {
+    text-align: center;
+}
+
+.rootClass {
+    width: 70%;
+}
+
+.loginTittle {
+    text-align: left;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainer input {
+    margin-bottom: 25px;
+    height: 30px;
+    background-color: rgba(204, 233, 251, 1);
+    border: none;
+    border-radius: 9px;
+    padding-left: 10px;
+}
+
+
+/*para login y register*/
+
+.buttonnextPage {
+    font-family: 'Poppins';
+    font-size: 16px;
+    height: 33px;
+    background: #8CD1EF;
+    border: none;
+    border-radius: 9px;
+}
+
+
+/*log y register*/
+
+.pGoogle {
+    font-style: normal;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 15px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+
+/*log y register*/
+
+.withGoogle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+/*log y register*/
+
+.logoGoogle {
+    margin-top: 20px;
+    width: 40px;
+    height: 40px;
+}
+
+
+/* log y register*/
+
+.backpage {
+    background-color: transparent;
+    border: none;
+    color: rgba(48, 185, 244, 1);
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+
+/*register*/
+
+.papasImg {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 10px;
+    margin-bottom: 14px;
+}
+
+.registerTittle {
+    text-align: left;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.pIconRegister {
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.inputContainerRegister {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputContainerRegister input {
+    margin-bottom: 25px;
+    height: 30px;
+    background-color: rgba(204, 233, 251, 1);
+    border: none;
+    border-radius: 9px;
+    padding-left: 10px;
+}
+
+
+/*modal*/
+
+
+/*fondo*/
+
+.verificationEmailModal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    padding-top: 70%;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+
+/*modal container*/
+
+.containerModal {
+    background-color: rgba(204, 233, 251, 1);
+    color: #050000;
+    padding: 15px;
+    width: 80%;
+    text-align: center;
+    margin: auto;
+    border-radius: 9px;
+}
+
+.okaybtnModal {
+    padding: 8px;
+    background-color: rgb(14, 54, 71);
+    border: none;
+    border-radius: 9px;
+    color: rgb(240, 244, 246);
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 10px;
+}
