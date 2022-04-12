@@ -4,7 +4,7 @@ export const login = () => {
          <div class="helpPotatoesTittle">
             <h1> Help Potatoes</h1>
          </div>
-         <div class="loginContainer"> 
+         <div class="loginSubContainer"> 
            <p class="loginTittle">Iniciar sesión</p>
            <div class="inputContainer">
            <input type="text" placeholder="Correo electrónico" id="inputEmail">

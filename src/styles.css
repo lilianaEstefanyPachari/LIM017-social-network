@@ -58,6 +58,7 @@ body {
     background: #8CD1EF;
     border: none;
     border-radius: 9px;
+    margin-top: 20px;
 }
 
 
@@ -111,7 +112,6 @@ body {
     flex-direction: row;
     justify-content: space-around;
     padding: 10px;
-    margin-bottom: 14px;
 }
 
 .registerTittle {
@@ -136,12 +136,12 @@ body {
 }
 
 .inputContainerRegister input {
-    margin-bottom: 25px;
     height: 30px;
     background-color: rgba(204, 233, 251, 1);
     border: none;
     border-radius: 9px;
     padding-left: 10px;
+    margin-top: 20px;
 }
 
 
@@ -149,7 +149,6 @@ body {
 
 
 /*fondo*/
-
 
 .verificationEmailModal {
     position: fixed;
@@ -161,12 +160,14 @@ body {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.4);
 }
-.divContainerModal{
+
+.divContainerModal {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
 }
+
 
 /*modal container*/
 
@@ -189,4 +190,28 @@ body {
     font-size: 12px;
     font-weight: 600;
     margin-top: 10px;
+}
+
+.error {
+    font-size: 0.7em;
+    color: darkgrey;
+}
+
+@media screen and (min-width:760px) {
+    .loginContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        grid-template-areas: "img login";
+        height: 90vh;
+        width: 100%;
+    }
+    .helpPotatoesTittle {
+        grid-area: img;
+        height: 100%;
+    }
+    .loginSubContainer {
+        grid-area: login;
+        height: 100%;
+    }
 }
