@@ -22,6 +22,12 @@ export const registerEvents = () => {
         const inputEmailReg = document.getElementById('inputEmail');
         const inputPasswordReg = document.getElementById('inputPassword');
         const inputNameReg = document.getElementById('inputName');
+        if (inputNameReg.value === '') {
+            document.getElementById('emptyInputName').innerText = '*Colocar su nombre de usuario';
+        }
+        if (inputPasswordReg.value === '') {
+            document.getElementById('passError').innerText = '*Ingrese una contraseña';
+        }
         registerWithEmail(inputEmailReg.value, inputPasswordReg.value, inputNameReg.value);
     });
     //evento del boton registrar con google
