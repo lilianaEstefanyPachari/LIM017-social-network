@@ -14,7 +14,7 @@ export const login = () => {
            <div class="withGoogle">
            <p class="pGoogle">Iniciar sesión con google</p>
            <img src="./img/googleLogo.png" class="logoGoogle">
-           <p class="pGoogle">¿No tienes cuenta?</p>
+           <p class="pGoogle">¿No tienes una cuenta?</p>
            <button id="registerP" class="backpage">Regístrate</button>
            </div>
          </div>
