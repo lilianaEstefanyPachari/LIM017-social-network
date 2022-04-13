@@ -6,10 +6,11 @@ export const home = () => {
 </header>
 <section class="containerPostInput>
 <img src="">
-<input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?"
-<button class="btnShare">Compartir</button>
+<input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?">
+<button class="btnShare">Publicar</button>
 </section>
 </section>`;
+return homepage;
 };
 
 const post = () => {
@@ -25,4 +26,5 @@ const post = () => {
     <img src="" class= "heartIcon">
     <p class="numberOfHearts"></p>
     </section>`
+    return postToShare;
 }

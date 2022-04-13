@@ -24,10 +24,6 @@ export const registerWithEmail = (email, password, name) => {
                 document.getElementById('passError').innerText = 'La contraseña debe tener más de 6 caracteres';
             }
         });
-    //    .then((email) => {
-    //         console.log("este es el email: " + email);
-    //         // ...
-    //     })
 
 }
 export const registerWithGoogle = () => {
