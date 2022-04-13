@@ -15,6 +15,7 @@ export const register = () => {
         </div>
             <div class= "inputContainerRegister">
                 <input type="text" id="inputName" placeholder="Usuario">
+                <p id="emptyInputName" class="error"></p>
                 <input type="email" id="inputEmail" placeholder="Correo electrónico">
                 <p id="errorEmail" class="error"></p>
                 <input type="password" id="inputPassword"placeholder="Contraseña">
