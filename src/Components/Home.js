@@ -10,13 +10,13 @@ export const home = () => {
 <button class="btnShare">Publicar</button>
 </section>
 </section>`;
-return homepage;
+    return homepage;
 };
 
 const post = () => {
     const postToShare =
         `<section class="containerPostShare">
-    <img src="">
+    <img src="${userData.userPhoto}">
     <p class="userName"></p>
     <img src="" class="threePoints">
         <section class="optionMenu" style="display:none;">
