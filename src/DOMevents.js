@@ -1,5 +1,5 @@
 import { onNavigate } from "./main.js";
-import { registerWithEmail, registerWithGoogle } from './lib/controller.js';
+import { registerWithEmail, registerWithGoogle, login } from './lib/controller.js';
 
 
 export const loginEvents = () => {
@@ -12,7 +12,16 @@ export const loginEvents = () => {
 
     });
 
+    const btnLogin = document.getElementById('loginBtn');
+    btnLogin.addEventListener('click', () => {
+        const inputEmailLogin = document.getElementById('inputEmail');
+        const inputPassLogin = document.getElementById('inputPass');
+        login(inputEmailLogin.value, inputPassLogin.value)
+    })
+
 };
+
+
 
 export const registerEvents = () => {
     console.log("register");

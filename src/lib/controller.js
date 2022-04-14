@@ -1,4 +1,4 @@
-import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb } from "./firebaseMain.js";
+import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb } from "./firebaseMain.js";
 
 export const registerWithEmail = (email, password, name) => {
     registerWithEmailFb(email, password)
@@ -31,4 +31,7 @@ export const registerWithEmail = (email, password, name) => {
 export const registerWithGoogle = () => {
     registerWithGoogleFb();
 
+}
+export const login = (email, password) => {
+    loginFb(email, password);
 }
