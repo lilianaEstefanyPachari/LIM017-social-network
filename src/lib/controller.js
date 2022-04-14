@@ -1,4 +1,6 @@
-import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb } from "./firebaseMain.js";
+import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb } from "./firebaseMain.js";
+import { onNavigate } from "../main.js";
+import { loginEvents } from "../DOMevents.js";
 
 export const registerWithEmail = (email, password, name) => {
     registerWithEmailFb(email, password)
@@ -33,5 +35,17 @@ export const registerWithGoogle = () => {
 
 }
 export const login = (email, password) => {
-    loginFb(email, password);
+    loginFb(email, password)
+        .then((res) => {
+            console.log(res)
+            if (res.userState === false) {
+                logOutfb();
+                onNavigate('/');
+                loginEvents();
+
+            } else {
+                onNavigate('/home')
+            }
+        })
+
 }

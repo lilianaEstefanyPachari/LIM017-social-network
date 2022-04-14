@@ -1,4 +1,4 @@
-import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
+import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app } from './firebaseConfiguration.js';
 
 // registrar usuario
@@ -71,11 +71,31 @@ export const loginFb = (email, password) => {
             const user = userCredential.user;
             console.log(user);
             console.log('logueado con exito')
-                // ...
+            const userData = {
+                userName: user.displayName,
+                userState: user.emailVerified,
+                userPhoto: user.photoURL,
+                userUid: user.uid
+            }
+            return userData;
+            // ...
         })
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
             console.log(errorMessage);
         });
+}
+export const logOutfb = () => {
+    return signOut(auth)
+        .then(() => {
+            console.log('Se esta cerrando la sesion')
+                // Sign-out successful.
+        }).catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            // An error happened.
+        });
+
 }

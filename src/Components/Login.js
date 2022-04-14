@@ -8,7 +8,7 @@ export const login = () => {
            <p class="loginTittle">Iniciar sesión</p>
            <div class="inputContainer">
            <input type="text" placeholder="Correo electrónico" id="inputEmail">
-           <input type="text" placeholder="Contraseña" id="inputPass">
+           <input type="password" placeholder="Contraseña" id="inputPass">
            <button id="loginBtn" class="buttonnextPage"> Iniciar Sesión </button>
            </div>
            <div class="withGoogle">
