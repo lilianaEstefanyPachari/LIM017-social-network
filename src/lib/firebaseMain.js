@@ -20,14 +20,14 @@ export const registerWithEmailFb = (email, password) => {
         //     // ..
         // });
 };
-export const updateProfilefb = (name) => {
+export const updateProfilefb = (name, photo) => {
     return updateProfile(auth.currentUser, {
         displayName: name,
-        //photoURL: "https://example.com/jane-q-user/profile.jpg"
+        photoURL: photo,
     }).then(() => {
         // Profile updated!
         // ...
-        console.log('ya actualice tu nombre');
+        console.log('ya actualice tu nombre y foto');
     }).catch((error) => {
         // An error occurred
         // ...
@@ -80,11 +80,8 @@ export const loginFb = (email, password) => {
             return userData;
             // ...
         })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage);
-        });
+
+
 }
 export const logOutfb = () => {
     return signOut(auth)

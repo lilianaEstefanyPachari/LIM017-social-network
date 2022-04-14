@@ -2,10 +2,10 @@ import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb
 import { onNavigate } from "../main.js";
 import { loginEvents } from "../DOMevents.js";
 
-export const registerWithEmail = (email, password, name) => {
+export const registerWithEmail = (email, password, name, photo) => {
     registerWithEmailFb(email, password)
         .then(() => {
-            updateProfilefb(name);
+            updateProfilefb(name, photo);
             sendEmailfb()
                 .then(() => {
                     const showModalEmailVerification = document.getElementById('modalEmailV');
@@ -31,7 +31,7 @@ export const registerWithEmail = (email, password, name) => {
 
 }
 export const registerWithGoogle = () => {
-    registerWithGoogleFb();
+    registerWithGoogleFb().then(() => { onNavigate('/home'); })
 
 }
 export const login = (email, password) => {
@@ -42,10 +42,22 @@ export const login = (email, password) => {
                 logOutfb();
                 onNavigate('/');
                 loginEvents();
-
+                const showModalLogin = document.getElementById('modalLogIn');
+                const closeModalLogin = document.getElementById('closeModalLogIn');
+                showModalLogin.style.display = 'block';
+                closeModalLogin.addEventListener('click', () => {
+                    showModalLogin.style.display = 'none';
+                })
             } else {
                 onNavigate('/home')
             }
         })
-
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            console.log(errorMessage);
+            if (errorMessage === 'Firebase: Error (auth/wrong-password).') {
+                document.getElementById('emptyInputPass').innerText = '*Su contraseña es incorrecta';
+            }
+        });
 }
