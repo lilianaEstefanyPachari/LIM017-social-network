@@ -44,12 +44,15 @@ export const registerEvents = () => {
     const papaDad = document.getElementById('dad');
     const pape = document.getElementById('pape');
     papaMom.addEventListener('click', () => {
+        papaMom.setAttribute('class', 'borderM');
         photoRegister = papaMom.src;
     })
     papaDad.addEventListener('click', () => {
+        papaDad.setAttribute('class', 'borderM')
         photoRegister = papaDad.src;
     })
     pape.addEventListener('click', () => {
+        pape.setAttribute('class', 'borderM')
         photoRegister = pape.src;
     })
     btnRegister.addEventListener('click', () => {

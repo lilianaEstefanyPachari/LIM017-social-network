@@ -29,7 +29,7 @@ body {
     justify-content: center;
 }
 
-.loginContainer{
+.loginContainer {
     height: 90%;
     width: 100%;
     display: flex;
@@ -136,6 +136,22 @@ body {
     padding: 10px;
 }
 
+.papasImg img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    padding: 15px 20px;
+    background-color: rgb(206, 202, 190);
+}
+
+.papasImg img:hover {
+    border: 2px solid rgba(48, 185, 244, 1);
+}
+
+.borderM {
+    border: 2px solid red;
+}
+
 .registerTittle {
     text-align: left;
     font-family: 'Poppins';
@@ -222,7 +238,7 @@ body {
 
 @media screen and (min-width:760px) {
     body {
-        background: rgb(249,255,255);
+        background: rgb(249, 255, 255);
     }
     .rootClass {
         width: 90%;
@@ -247,7 +263,7 @@ body {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid rgb(223,227,230);
+        border: 1px solid rgb(223, 227, 230);
         margin-top: 25px;
         background: white;
         border-radius: 1px;
@@ -268,7 +284,6 @@ body {
         margin-top: 0px;
         margin-bottom: 26px;
     }
-
     .registerContainerMain {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -277,24 +292,24 @@ body {
         height: 94vh;
         width: 100%;
     }
-    .titleGrid{
+    .titleGrid {
         grid-area: imgReg;
         height: 100%;
     }
-    .containerRegisterGrid{
+    .containerRegisterGrid {
         grid-area: Register;
         width: 75%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid rgb(223,227,230);
+        border: 1px solid rgb(223, 227, 230);
         background: white;
         border-radius: 1px;
         padding: 16px 15px;
     }
     .registerTittle {
-        margin-top: 0px; 
+        margin-top: 0px;
         margin-bottom: 14px;
     }
     .papasImg {
