@@ -16,7 +16,7 @@ export const home = () => {
 const post = () => {
     const postToShare =
         `<section class="containerPostShare">
-    <img src="${userData.userPhoto}">
+    <img src="">
     <p class="userName"></p>
     <img src="" class="threePoints">
         <section class="optionMenu" style="display:none;">

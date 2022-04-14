@@ -9,9 +9,9 @@ export const register = () => {
             <p class="pIconRegister">Elige el icono con el que te identifiques</p>
         
         <div class="papasImg">
-            <img src="./img/papamamá.png" id="mom">
-            <img src="./img/papapapá.png" id="dad">
-            <img src="./img/pape.png" id="pape">
+            <img src="./img/papamamá.png" id="mom" class="popatoesImg">
+            <img src="./img/papapapá.png" id="dad" class="popatoesImg">
+            <img src="./img/pape.png" id="pape" class="popatoesImg">
         </div>
             <div class= "inputContainerRegister">
                 <input type="text" id="inputName" placeholder="Usuario">
