@@ -45,14 +45,22 @@ export const registerEvents = () => {
     const pape = document.getElementById('pape');
     papaMom.addEventListener('click', () => {
         papaMom.setAttribute('class', 'borderM');
+        papaDad.removeAttribute('class','borderM');
+        pape.removeAttribute('class','borderM');
         photoRegister = papaMom.src;
     })
     papaDad.addEventListener('click', () => {
-        papaDad.setAttribute('class', 'borderM')
+        papaDad.setAttribute('class', 'borderM');
+        papaMom.removeAttribute('class','borderM');
+        pape.removeAttribute('class','borderM');
+
         photoRegister = papaDad.src;
     })
     pape.addEventListener('click', () => {
-        pape.setAttribute('class', 'borderM')
+        pape.setAttribute('class', 'borderM');
+        papaMom.removeAttribute('class','borderM');
+        papaDad.removeAttribute('class','borderM');
+
         photoRegister = pape.src;
     })
     btnRegister.addEventListener('click', () => {
