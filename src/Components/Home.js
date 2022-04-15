@@ -1,15 +1,15 @@
 export const home = () => {
-    const homepage =
-        `<section>
-<header>
-<h1 class="headerTittle">Help Potatoes</h1>
-</header>
-<section class="containerPostInput>
-<img src="">
-<input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?">
-<button class="btnShare">Publicar</button>
-</section>
-</section>`;
+    const homepage = `<section>
+     <header>
+        <h1 class="headerTittle">Help Potatoes</h1>
+     </header>
+
+     <section id="profileContainer">
+     </section>
+
+     <section class="postContainer" id="postContainer">     
+     </section>
+    </section>`;
     return homepage;
 };
 
