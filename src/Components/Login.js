@@ -1,6 +1,7 @@
 export const login = () => {
     const loginTemplate = `
       <section class="loginContainer">
+      <section class="subLoginContainer">
          <div class="helpPotatoesTittle">
             <h1> Help Potatoes</h1>
          </div>
@@ -28,6 +29,7 @@ export const login = () => {
            </div>
            </section>
          </div>
+         </section>
       </section>
     `;
 

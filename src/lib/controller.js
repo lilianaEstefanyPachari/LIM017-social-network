@@ -1,6 +1,6 @@
 import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb } from "./firebaseMain.js";
 import { onNavigate } from "../main.js";
-import { loginEvents } from "../DOMevents.js";
+import { loginEvents, homeEvents } from "../DOMevents.js";
 
 export const registerWithEmail = (email, password, name, photo) => {
     registerWithEmailFb(email, password)
@@ -32,18 +32,17 @@ export const registerWithEmail = (email, password, name, photo) => {
 }
 export const registerWithGoogle = () => {
     registerWithGoogleFb()
-    .then((res) => { 
-        onNavigate('/home');
-        const userProfile = document.getElementById('profileContainer');
-        const newPost = document.getElementById('postContainer');
+        .then((res) => {
+            onNavigate('/home');
+            homeEvents();
+            const userProfile = document.getElementById('profileContainer');
+            const newPost = document.getElementById('postContainer');
 
-        userProfile.innerHTML=`<img src="${res.userPhoto}" alt="imagen de perfil">
-                <p>${res.userName}</p>`;
-
-        newPost.innerHTML=`<img src="">
-                <input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?">
-                <button class="btnShare">Publicar</button>`;
-    })
+            userProfile.innerHTML = `<img src="./img/pape.png" alt="fotode perfil"> <p>${res.userName}</p>`
+            newPost.innerHTML = `<img src="">
+            <input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?">
+            <button class="btnShare">Publicar</button>`;
+        })
 
 }
 export const login = (email, password) => {
@@ -61,14 +60,15 @@ export const login = (email, password) => {
                     showModalLogin.style.display = 'none';
                 })
             } else {
-                onNavigate('/home')
+                onNavigate('/home');
+                homeEvents();
                 const userProfile = document.getElementById('profileContainer');
                 const newPost = document.getElementById('postContainer');
 
-                userProfile.innerHTML=`<img src="${res.userPhoto}" alt="imagen de perfil">
+                userProfile.innerHTML = `<img src="${res.userPhoto}" alt="imagen de perfil">
                 <p>${res.userName}</p>`;
 
-                newPost.innerHTML=`<img src="">
+                newPost.innerHTML = `<img src="">
                 <input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?">
                 <button class="btnShare">Publicar</button>`;
             }

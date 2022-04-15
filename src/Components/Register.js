@@ -1,6 +1,7 @@
 export const register = () => {
     const registerTemplate = `
     <section class="registerContainerMain">
+    <section class="subRegisterContainerMain">
         <div class="titleGrid">
             <h1 class="helpPotatoesTittle">Help Potatoes</h1>
         </div>
@@ -37,6 +38,7 @@ export const register = () => {
             </div>
             </section>
         </div>
+        </section>
     </section>   
      `;
 

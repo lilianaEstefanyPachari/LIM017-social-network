@@ -1,7 +1,12 @@
 export const home = () => {
-    const homepage = `<section>
+    const homepage = `<section class="homePageContainer">
      <header>
-        <h1 class="headerTittle">Help Potatoes</h1>
+     
+     <nav> 
+     <h1 class="headerTittle">Help Potatoes</h1>
+     <img src="./img/logOutIcon.png" alt="" class="logOutIcon" id="logOutIcon">
+     </nav>
+        
      </header>
 
      <section id="profileContainer">
