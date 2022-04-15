@@ -52,6 +52,14 @@ export const registerWithGoogleFb = () => {
             // The signed-in user info.
             const user = result.user;
             console.log(user);
+            const userData = {
+                userName: user.displayName,
+                userState: user.emailVerified,
+                userPhoto: user.photoURL,
+                userUid: user.uid
+            }
+            return userData;
+            
             // ...
         }).catch((error) => {
             // Handle Errors here.

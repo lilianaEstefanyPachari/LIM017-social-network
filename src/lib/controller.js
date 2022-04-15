@@ -31,7 +31,19 @@ export const registerWithEmail = (email, password, name, photo) => {
 
 }
 export const registerWithGoogle = () => {
-    registerWithGoogleFb().then(() => { onNavigate('/home'); })
+    registerWithGoogleFb()
+    .then((res) => { 
+        onNavigate('/home');
+        const userProfile = document.getElementById('profileContainer');
+        const newPost = document.getElementById('postContainer');
+
+        userProfile.innerHTML=`<img src="${res.userPhoto}" alt="imagen de perfil">
+                <p>${res.userName}</p>`;
+
+        newPost.innerHTML=`<img src="">
+                <input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?">
+                <button class="btnShare">Publicar</button>`;
+    })
 
 }
 export const login = (email, password) => {
@@ -50,6 +62,15 @@ export const login = (email, password) => {
                 })
             } else {
                 onNavigate('/home')
+                const userProfile = document.getElementById('profileContainer');
+                const newPost = document.getElementById('postContainer');
+
+                userProfile.innerHTML=`<img src="${res.userPhoto}" alt="imagen de perfil">
+                <p>${res.userName}</p>`;
+
+                newPost.innerHTML=`<img src="">
+                <input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?">
+                <button class="btnShare">Publicar</button>`;
             }
         })
         .catch((error) => {
