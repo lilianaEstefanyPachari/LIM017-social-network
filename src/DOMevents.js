@@ -1,5 +1,5 @@
 import { onNavigate } from "./main.js";
-import { registerWithEmail, registerWithGoogle, login } from './lib/controller.js';
+import { registerWithEmail, registerWithGoogle, login, seePost } from './lib/controller.js';
 import { logOutfb, savePostfb } from './lib/firebaseMain.js';
 
 
@@ -106,6 +106,7 @@ export const homeEvents = () => {
     const inputPost = document.getElementById('postInput');
     btnPost.addEventListener('click', () => {
         savePostfb(inputPost.value);
+        seePost();
 
     })
 }

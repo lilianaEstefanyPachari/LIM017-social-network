@@ -1,6 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app, db } from './firebaseConfiguration.js';
-import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import { collection, addDoc, serverTimestamp, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 // registrar usuario
 const auth = getAuth(app);
@@ -121,4 +121,12 @@ export const savePostfb = (input) => {
         console.error("Error adding document: ", e);
 
     });
+}
+
+export const seePostFb = () => {
+    const querySnapshot = getDocs(collection(db, "post"));
+    // querySnapshot.forEach((doc) => {
+    //     console.log(`${doc.id} => ${doc.data()}`);
+    // });
+    return querySnapshot
 }

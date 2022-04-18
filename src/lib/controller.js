@@ -1,4 +1,4 @@
-import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb } from "./firebaseMain.js";
+import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb, seePostFb } from "./firebaseMain.js";
 import { onNavigate } from "../main.js";
 import { loginEvents, homeEvents } from "../DOMevents.js";
 
@@ -71,7 +71,7 @@ export const login = (email, password) => {
                 newPost.innerHTML = `<img src="">
                 <input type="text" id= "postInput" class="postInput" placeholder="¡Hola! ¿Qué quieres compartir?">
                 <button id="btnPost" class="btnShare">Publicar</button>`;
-
+                seePost();
                 homeEvents();
             }
         })
@@ -83,4 +83,14 @@ export const login = (email, password) => {
                 document.getElementById('emptyInputPass').innerText = '*Su contraseña es incorrecta';
             }
         });
+}
+
+export const seePost = () => {
+    seePostFb().then((query) => {
+        query.forEach((doc) => {
+            document.getElementById('postPublic').innerHTML += `<p id= "userNamePublic">${doc.data().name} </p>
+            <img src="${doc.data().photoURL}">
+            <p id="userPost">${doc.data().post} </p>`
+        });
+    })
 }
