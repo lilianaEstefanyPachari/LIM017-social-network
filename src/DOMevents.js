@@ -91,7 +91,7 @@ export const registerEvents = () => {
         })
 
     }
-    //funcionalidad de vista Home
+//funcionalidad de vista Home
 export const homeEvents = () => {
     // evento del boton Log Out
     const iconLogOut = document.getElementById('logOutIcon');
