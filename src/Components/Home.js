@@ -14,22 +14,9 @@ export const home = () => {
 
      <section class="postContainer" id="postContainer">     
      </section>
+
+     <section class="publicPost" id="postPublic">
+     </section>
     </section>`;
     return homepage;
 };
-
-const post = () => {
-    const postToShare =
-        `<section class="containerPostShare">
-    <img src="">
-    <p class="userName"></p>
-    <img src="" class="threePoints">
-        <section class="optionMenu" style="display:none;">
-        
-        </section>
-    <p class="postedComment">
-    <img src="" class= "heartIcon">
-    <p class="numberOfHearts"></p>
-    </section>`
-    return postToShare;
-}
