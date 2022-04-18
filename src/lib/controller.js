@@ -34,14 +34,17 @@ export const registerWithGoogle = () => {
     registerWithGoogleFb()
         .then((res) => {
             onNavigate('/home');
-            homeEvents();
             const userProfile = document.getElementById('profileContainer');
             const newPost = document.getElementById('postContainer');
 
-            userProfile.innerHTML = `<img src="./img/pape.png" alt="fotode perfil"> <p>${res.userName}</p>`
-            newPost.innerHTML = `<img src="">
-            <input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?">
+            userProfile.innerHTML = `
+            <img src="./img/pape.png" alt="" class="iconUserDefault">
+            <p class="userNameProfile">${res.userName}</p>`
+            newPost.innerHTML = `
+            <input type="text" class="postInput" placeholder="¡Hola! ¿Qué quieres compartir?">
             <button class="btnShare">Publicar</button>`;
+            seePost();
+            homeEvents();
         })
 
 }
@@ -65,12 +68,12 @@ export const login = (email, password) => {
                 const userProfile = document.getElementById('profileContainer');
                 const newPost = document.getElementById('postContainer');
 
-                userProfile.innerHTML = `<img src="${res.userPhoto}" alt="imagen de perfil">
-                <p>${res.userName}</p>`;
+                userProfile.innerHTML = `<img src="${res.userPhoto}" alt="imagen de perfil" class="userPhotoURLProfile">
+                <p class="userNameProfile">${res.userName}</p>`;
 
-                newPost.innerHTML = `<img src="">
-                <input type="text" id= "postInput" class="postInput" placeholder="¡Hola! ¿Qué quieres compartir?">
-                <button id="btnPost" class="btnShare">Publicar</button>`;
+                newPost.innerHTML = `
+                <input type="text"  class="postInput" placeholder="¡Hola! ¿Qué quieres compartir?">
+                <button class="btnShare">Publicar</button>`;
                 seePost();
                 homeEvents();
             }
@@ -88,9 +91,10 @@ export const login = (email, password) => {
 export const seePost = () => {
     seePostFb().then((query) => {
         query.forEach((doc) => {
-            document.getElementById('postPublic').innerHTML += `<p id= "userNamePublic">${doc.data().name} </p>
-            <img src="${doc.data().photoURL}">
-            <p id="userPost">${doc.data().post} </p>`
+            document.getElementById('postPublic').innerHTML += `
+            <img class ="userPhotoPublic"src="${doc.data().photoURL}">
+            <p class= "userNamePublic">${doc.data().name} </p>
+            <p class="userPostPublic">${doc.data().post} </p>`
         });
     })
 }
