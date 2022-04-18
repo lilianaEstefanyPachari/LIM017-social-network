@@ -298,6 +298,32 @@
         .logOutIcon {
             width: 20px;
         }
+        /*container de todos los post*/
+        
+        .publicPost {
+            margin: 20px auto;
+            width: 96%;
+        }
+        
+        .userNamePublic {
+            margin-top: 17px;
+        }
+        
+        .containerSeePost {
+            width: auto;
+            margin: 20px;
+            background: hsl(206deg 72% 89%);
+            border-radius: 15px;
+            padding: 15px;
+        }
+        
+        .divUserPhoto {
+            display: flex;
+        }
+        
+        .comentPost {
+            margin-left: 37px;
+        }
         
         @media screen and (min-width:760px) {
             body {

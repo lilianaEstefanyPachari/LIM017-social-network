@@ -92,9 +92,19 @@ export const seePost = () => {
     seePostFb().then((query) => {
         query.forEach((doc) => {
             document.getElementById('postPublic').innerHTML += `
+            <div class="containerSeePost">
+
+            <div class="divUserPhoto">
             <img class ="userPhotoPublic"src="${doc.data().photoURL}">
-            <p class= "userNamePublic">${doc.data().name} </p>
-            <p class="userPostPublic">${doc.data().post} </p>`
+            <p class= "userNamePublic">${doc.data().name} </p> 
+            </div>
+
+            <div class="comentPost">
+            <p class="userPostPublic">${doc.data().post} </p>
+            </div>
+
+            </div>
+            `
         });
     })
 }
