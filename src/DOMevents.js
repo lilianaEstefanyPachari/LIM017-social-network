@@ -102,11 +102,10 @@ export const homeEvents = () => {
     });
 
     //evento para guardar Post
-    const btnPost = document.getElementById('btnPost');
-    const inputPost = document.getElementById('postInput');
-    btnPost.addEventListener('click', () => {
-        savePostfb(inputPost.value);
+    const btnPost = document.querySelectorAll('.btnShare');
+    const inputPost = document.querySelectorAll('.postInput');
+    btnPost.forEach(btn => btn.addEventListener('click', () => {
+        inputPost.forEach(e => savePostfb(e.value));
         seePost();
-
-    })
+    }))
 }
