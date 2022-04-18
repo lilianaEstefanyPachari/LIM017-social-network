@@ -61,7 +61,7 @@ export const login = (email, password) => {
                 })
             } else {
                 onNavigate('/home');
-                homeEvents();
+
                 const userProfile = document.getElementById('profileContainer');
                 const newPost = document.getElementById('postContainer');
 
@@ -69,8 +69,10 @@ export const login = (email, password) => {
                 <p>${res.userName}</p>`;
 
                 newPost.innerHTML = `<img src="">
-                <input type="text" class="postInput"placeholder="¡Hola! ¿Qué quieres compartir?">
-                <button class="btnShare">Publicar</button>`;
+                <input type="text" id= "postInput" class="postInput" placeholder="¡Hola! ¿Qué quieres compartir?">
+                <button id="btnPost" class="btnShare">Publicar</button>`;
+
+                homeEvents();
             }
         })
         .catch((error) => {

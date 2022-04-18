@@ -1,6 +1,6 @@
 import { onNavigate } from "./main.js";
 import { registerWithEmail, registerWithGoogle, login } from './lib/controller.js';
-import { logOutfb } from './lib/firebaseMain.js';
+import { logOutfb, savePostfb } from './lib/firebaseMain.js';
 
 
 export const loginEvents = () => {
@@ -91,7 +91,7 @@ export const registerEvents = () => {
         })
 
     }
-//funcionalidad de vista Home
+    //funcionalidad de vista Home
 export const homeEvents = () => {
     // evento del boton Log Out
     const iconLogOut = document.getElementById('logOutIcon');
@@ -99,5 +99,13 @@ export const homeEvents = () => {
         logOutfb();
         onNavigate('/');
         loginEvents();
+    });
+
+    //evento para guardar Post
+    const btnPost = document.getElementById('btnPost');
+    const inputPost = document.getElementById('postInput');
+    btnPost.addEventListener('click', () => {
+        savePostfb(inputPost.value);
+
     })
 }

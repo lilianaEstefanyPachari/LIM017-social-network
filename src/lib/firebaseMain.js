@@ -1,5 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-import { app } from './firebaseConfiguration.js';
+import { app, db } from './firebaseConfiguration.js';
+import { collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 // registrar usuario
 const auth = getAuth(app);
@@ -59,7 +60,7 @@ export const registerWithGoogleFb = () => {
                 userUid: user.uid
             }
             return userData;
-            
+
             // ...
         }).catch((error) => {
             // Handle Errors here.
@@ -103,4 +104,21 @@ export const logOutfb = () => {
             // An error happened.
         });
 
+}
+export const savePostfb = (input) => {
+    const user = auth.currentUser;
+    console.log(user);
+    return addDoc(collection(db, "post"), {
+        id: user.uid,
+        name: user.displayName,
+        email: user.email,
+        post: input,
+        photoURL: user.photoURL,
+        date: serverTimestamp()
+    }).then((docRef) => {
+        console.log("Tu post ya esta en la nube", docRef.id);
+    }).catch((e) => {
+        console.error("Error adding document: ", e);
+
+    });
 }
