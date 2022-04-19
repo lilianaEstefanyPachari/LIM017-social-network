@@ -15,7 +15,7 @@ export const loginEvents = () => {
     //btn de google para ingresar sesion con google
     const btnGoogle = document.getElementById('googleImgLogIn');
     btnGoogle.addEventListener('click', () => {
-        registerWithGoogle();
+        registerWithGoogle(document.getElementById('papeLogIn').src);
 
     });
 
@@ -79,7 +79,7 @@ export const registerEvents = () => {
         //evento del boton registrar con google
         const btnGoogle = document.getElementById('googleImg');
         btnGoogle.addEventListener('click', () => {
-            registerWithGoogle();
+            registerWithGoogle(document.getElementById('pape').src);
 
         });
 
@@ -105,7 +105,9 @@ export const homeEvents = () => {
     const btnPost = document.querySelectorAll('.btnShare');
     const inputPost = document.querySelectorAll('.postInput');
     btnPost.forEach(btn => btn.addEventListener('click', () => {
-        inputPost.forEach(e => savePostfb(e.value));
-        seePost();
+        inputPost.forEach(e => {
+            savePostfb(e.value);
+            e.value = '';
+        })
     }))
 }

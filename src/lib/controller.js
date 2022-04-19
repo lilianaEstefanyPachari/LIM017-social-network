@@ -1,4 +1,4 @@
-import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb, seePostFb } from "./firebaseMain.js";
+import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb, seePostFb, onGetPost } from "./firebaseMain.js";
 import { onNavigate } from "../main.js";
 import { loginEvents, homeEvents } from "../DOMevents.js";
 
@@ -30,16 +30,17 @@ export const registerWithEmail = (email, password, name, photo) => {
         });
 
 }
-export const registerWithGoogle = () => {
-    registerWithGoogleFb()
+export const registerWithGoogle = (photo) => {
+    registerWithGoogleFb(photo)
         .then((res) => {
             onNavigate('/home');
             const userProfile = document.getElementById('profileContainer');
             const newPost = document.getElementById('postContainer');
 
-            userProfile.innerHTML = `
+            userProfile.innerHTML = `<div class="containerPhotoProfile">
             <img src="./img/pape.png" alt="" class="iconUserDefault">
-            <p class="userNameProfile">${res.userName}</p>`
+            </div>
+            `
             newPost.innerHTML = `
             <input type="text" class="postInput" placeholder="¡Hola! ¿Qué quieres compartir?">
             <button class="btnShare">Publicar</button>`;
@@ -68,8 +69,9 @@ export const login = (email, password) => {
                 const userProfile = document.getElementById('profileContainer');
                 const newPost = document.getElementById('postContainer');
 
-                userProfile.innerHTML = `<img src="${res.userPhoto}" alt="imagen de perfil" class="userPhotoURLProfile">
-                <p class="userNameProfile">${res.userName}</p>`;
+                userProfile.innerHTML = `<div class="containerPhotoProfile">
+                <img src="${res.userPhoto}" alt="imagen de perfil" class="userPhotoURLProfile">
+                </div>`;
 
                 newPost.innerHTML = `
                 <input type="text"  class="postInput" placeholder="¡Hola! ¿Qué quieres compartir?">
@@ -89,22 +91,28 @@ export const login = (email, password) => {
 }
 
 export const seePost = () => {
-    seePostFb().then((query) => {
+    onGetPost((query) => {
+        document.getElementById('postPublic').innerHTML = '';
         query.forEach((doc) => {
             document.getElementById('postPublic').innerHTML += `
             <div class="containerSeePost">
 
             <div class="divUserPhoto">
             <img class ="userPhotoPublic"src="${doc.data().photoURL}">
-            <p class= "userNamePublic">${doc.data().name} </p> 
+            <div class="divUserName">
+            <p class="userNamePublic">${doc.data().name} </p>
+            <p class="relleno"> ${doc.data().date.toDate().toDateString()},${doc.data().date.toDate().toLocaleTimeString()}</p>
             </div>
-
+            </div>
             <div class="comentPost">
             <p class="userPostPublic">${doc.data().post} </p>
+            </div>
+            <div class="likeIcon">
             </div>
 
             </div>
             `
+            console.log(`${doc.data().date.toDate()}`);
         });
     })
 }
