@@ -399,32 +399,38 @@ nav {
         background: rgb(249, 255, 255);
     }
     .rootClass {
-        width: 90%;
+        width: 100%;
     }
     .subLoginContainer {
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: "img login";
-        height: 90vh;
         width: 100%;
     }
     .helpPotatoesTittle {
         grid-area: img;
         height: 100%;
+        padding-top: 20px;
+        font-size: 40px;
+    }
+    .helpPotatoesTittleRegister {
+        height: 100%;
+        padding-top: 20px;
+        font-size: 46px;
     }
     .loginSubContainer {
         grid-area: login;
-        height: 90%;
+        height: 100%;
         width: 70%;
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid rgb(223, 227, 230);
         margin: 25px 0 0 20px;
         background: white;
         border-radius: 1px;
+        border: none;
     }
     .buttonnextPage {
         margin-top: 0px;
@@ -447,12 +453,11 @@ nav {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
         grid-template-areas: "imgReg Register";
-        height: 94vh;
         width: 100%;
     }
     .titleGrid {
         grid-area: imgReg;
-        height: 100%;
+        text-align: center;
     }
     .containerRegisterGrid {
         grid-area: Register;
@@ -462,7 +467,7 @@ nav {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        border: 1px solid rgb(223, 227, 230);
+        border: none;
         background: white;
         border-radius: 1px;
         padding: 16px 15px;
