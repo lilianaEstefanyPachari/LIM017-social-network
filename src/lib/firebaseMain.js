@@ -1,6 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app, db } from './firebaseConfiguration.js';
-import { collection, addDoc, serverTimestamp, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import { collection, addDoc, serverTimestamp, getDocs, onSnapshot,query, orderBy } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 // registrar usuario
 const auth = getAuth(app);
@@ -142,4 +142,9 @@ export const seePostFb = () => {
     return querySnapshot
 }
 
-export const onGetPost = (callback) => onSnapshot(collection(db, "post"), callback)
+// export const onGetPost = (callback) => onSnapshot(collection(db, "post"), callback)
+
+export const onGetPost = (callback) => {
+    return onSnapshot(query(collection(db, "post"),orderBy('date','desc')), callback
+    );  
+}
