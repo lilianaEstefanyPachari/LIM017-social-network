@@ -1,6 +1,6 @@
 import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerification, GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, signOut } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 import { app, db } from './firebaseConfiguration.js';
-import { collection, addDoc, serverTimestamp, getDocs } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import { collection, addDoc, serverTimestamp, getDocs, onSnapshot } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 // registrar usuario
 const auth = getAuth(app);
@@ -43,10 +43,21 @@ export const sendEmailfb = () => {
             console.log('email enviado');
         });
 }
-export const registerWithGoogleFb = () => {
+export const registerWithGoogleFb = (photo) => {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider)
         .then((result) => {
+            updateProfile(auth.currentUser, {
+                photoURL: photo,
+            }).then(() => {
+                // Profile updated!
+                // ...
+                console.log('ya actualice tu nombre y foto de google');
+            }).catch((error) => {
+                // An error occurred
+                // ...
+                console.log('error al actualizar');
+            });;
             // This gives you a Google Access Token. You can use it to access the Google API.
             const credential = GoogleAuthProvider.credentialFromResult(result);
             const token = credential.accessToken;
@@ -130,3 +141,5 @@ export const seePostFb = () => {
     // });
     return querySnapshot
 }
+
+export const onGetPost = (callback) => onSnapshot(collection(db, "post"), callback)
