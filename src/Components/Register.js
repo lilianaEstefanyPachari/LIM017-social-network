@@ -3,7 +3,7 @@ export const register = () => {
     <section class="registerContainerMain">
     <section class="subRegisterContainerMain">
         <div class="titleGrid">
-            <h1 class="helpPotatoesTittle">Help Potatoes</h1>
+            <h1 class="helpPotatoesTittleRegister">Help Potatoes</h1>
         </div>
         <div class= "containerRegisterGrid">
             <p class="registerTittle">Regístrate</p>
