@@ -37,8 +37,5 @@ window.onpopstate = () => {
     }
 };
 
-
-
-
 rootDiv.innerHTML = component();
 loginEvents();

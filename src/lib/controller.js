@@ -1,5 +1,5 @@
 import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb, seePostFb, onGetPost } from "./firebaseMain.js";
-import { onNavigate } from "../main.js";
+import { onNavigate } from "../SPA.js";
 import { loginEvents, homeEvents } from "../DOMevents.js";
 
 export const registerWithEmail = (email, password, name, photo) => {
@@ -29,7 +29,9 @@ export const registerWithEmail = (email, password, name, photo) => {
             }
         });
 
-}
+};
+
+
 export const registerWithGoogle = (photo) => {
     registerWithGoogleFb(photo)
         .then((res) => {
@@ -48,7 +50,9 @@ export const registerWithGoogle = (photo) => {
             homeEvents();
         })
 
-}
+};
+
+
 export const login = (email, password) => {
     loginFb(email, password)
         .then((res) => {
@@ -88,7 +92,8 @@ export const login = (email, password) => {
                 document.getElementById('emptyInputPass').innerText = '*Su contraseña es incorrecta';
             }
         });
-}
+};
+
 
 export const seePost = () => {
     onGetPost((query) => {
@@ -115,4 +120,4 @@ export const seePost = () => {
             console.log(`${doc.data().date.toDate()}`);
         });
     })
-}
+};

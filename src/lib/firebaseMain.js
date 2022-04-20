@@ -2,7 +2,7 @@ import { getAuth, createUserWithEmailAndPassword, updateProfile, sendEmailVerifi
 import { app, db } from './firebaseConfiguration.js';
 import { collection, addDoc, serverTimestamp, getDocs, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
-// registrar usuario
+// registrar nuevo usuario con email
 const auth = getAuth(app);
 
 export const registerWithEmailFb = (email, password) => {
@@ -11,38 +11,33 @@ export const registerWithEmailFb = (email, password) => {
             // Signed in
             const user = userCredential.user;
             console.log(user);
-            // return user.email
-            // ...
         })
-        // .catch((error) => {
-        //     const errorCode = error.code;
-        //     const errorMessage = error.message;
-        //     console.log(errorMessage);
-        //     // ..
-        // });
 };
+
+//actulizar datos del nuevo usuario
 export const updateProfilefb = (name, photo) => {
     return updateProfile(auth.currentUser, {
         displayName: name,
         photoURL: photo,
     }).then(() => {
         // Profile updated!
-        // ...
         console.log('ya actualice tu nombre y foto');
     }).catch((error) => {
         // An error occurred
-        // ...
         console.log('error al actualizar');
     });
-}
+};
+
+//enviar email de verificación
 export const sendEmailfb = () => {
     return sendEmailVerification(auth.currentUser)
         .then(() => {
             // Email verification sent!
-            // ...
             console.log('email enviado');
         });
-}
+};
+
+//registarse con google (LogInWithGoogle too)
 export const registerWithGoogleFb = (photo) => {
     const provider = new GoogleAuthProvider();
     return signInWithPopup(auth, provider)
@@ -51,11 +46,9 @@ export const registerWithGoogleFb = (photo) => {
                 photoURL: photo,
             }).then(() => {
                 // Profile updated!
-                // ...
                 console.log('ya actualice tu nombre y foto de google');
             }).catch((error) => {
                 // An error occurred
-                // ...
                 console.log('error al actualizar');
             });;
             // This gives you a Google Access Token. You can use it to access the Google API.
@@ -72,7 +65,6 @@ export const registerWithGoogleFb = (photo) => {
             }
             return userData;
 
-            // ...
         }).catch((error) => {
             // Handle Errors here.
             const errorCode = error.code;
@@ -81,9 +73,10 @@ export const registerWithGoogleFb = (photo) => {
             const email = error.email;
             // The AuthCredential type that was used.
             const credential = GoogleAuthProvider.credentialFromError(error);
-            // ...
         });
-}
+};
+
+//Logearse con correo
 export const loginFb = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
@@ -98,11 +91,10 @@ export const loginFb = (email, password) => {
                 userUid: user.uid
             }
             return userData;
-            // ...
         })
+};
 
-
-}
+//Salir de tu cuenta
 export const logOutfb = () => {
     return signOut(auth)
         .then(() => {
@@ -115,7 +107,9 @@ export const logOutfb = () => {
             // An error happened.
         });
 
-}
+};
+
+//Subir post a la nube/data de firestore
 export const savePostfb = (input) => {
     const user = auth.currentUser;
     console.log(user);
@@ -132,18 +126,13 @@ export const savePostfb = (input) => {
         console.error("Error adding document: ", e);
 
     });
-}
+};
 
+//Imprimir data/post en la página
 export const seePostFb = () => {
     const querySnapshot = getDocs(collection(db, "post"));
-    // querySnapshot.forEach((doc) => {
-    //     console.log(`${doc.id} => ${doc.data()}`);
-    // });
     return querySnapshot
-}
+};
 
-// export const onGetPost = (callback) => {
-// return onSnapshot(query(collection(db, "post"),orderBy('date','desc')), callback)
-// }
-
+//actulizar data/post en tiempo real y en orden descendente
 export const onGetPost = (callback) => onSnapshot(query(collection(db, "post"), orderBy('date', 'desc')), callback)
