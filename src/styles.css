@@ -413,11 +413,19 @@ nav {
         height: 100%;
         padding-top: 20px;
         font-size: 40px;
+        background-image: url(./img/imgPrincipal.png);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 77%;
     }
     .helpPotatoesTittleRegister {
         height: 100%;
         padding-top: 20px;
         font-size: 46px;
+        background-image: url(./img/imgPrincipal.png);
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: 77%;
     }
     .loginSubContainer {
         grid-area: login;
