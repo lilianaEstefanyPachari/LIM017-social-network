@@ -1,4 +1,4 @@
-import { onNavigate } from "./SPA.js";
+import { onNavigate } from "./main.js";
 import { registerWithEmail, registerWithGoogle, login } from './lib/controller.js';
 import { logOutfb, savePostfb } from './lib/firebaseMain.js';
 

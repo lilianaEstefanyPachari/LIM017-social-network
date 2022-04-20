@@ -1,5 +1,5 @@
 import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb, seePostFb, onGetPost } from "./firebaseMain.js";
-import { onNavigate } from "../SPA.js";
+import { onNavigate } from "../main.js";
 import { loginEvents, homeEvents } from "../DOMevents.js";
 
 export const registerWithEmail = (email, password, name, photo) => {
