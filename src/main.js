@@ -4,7 +4,7 @@
 
 // myFunction();
 import { loginEvents, registerEvents } from './DOMevents.js';
-import { register } from './components/Register.js';
+import { register } from './Components/Register_user.js';
 import { login } from './Components/Login.js';
 import { home } from './Components/Home.js';
 

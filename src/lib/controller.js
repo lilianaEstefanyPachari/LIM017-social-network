@@ -1,4 +1,4 @@
-import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb, seePostFb, onGetPost } from "./firebaseMain.js";
+import { registerWithEmailFb, updateProfilefb, sendEmailfb, registerWithGoogleFb, loginFb, logOutfb, onGetPost, savePostfb } from "./firebaseMain.js";
 import { onNavigate } from "../main.js";
 import { loginEvents, homeEvents } from "../DOMevents.js";
 
@@ -51,14 +51,15 @@ export const registerWithGoogle = (photo) => {
         })
 
 };
-
+//función de cerrar sesión
+export const logOut = () => logOutfb();
 
 export const login = (email, password) => {
     loginFb(email, password)
         .then((res) => {
             console.log(res)
             if (res.userState === false) {
-                logOutfb();
+                logOut();
                 onNavigate('/');
                 loginEvents();
                 const showModalLogin = document.getElementById('modalLogIn');
@@ -90,10 +91,14 @@ export const login = (email, password) => {
             console.log(errorMessage);
             if (errorMessage === 'Firebase: Error (auth/wrong-password).') {
                 document.getElementById('emptyInputPass').innerText = '*Su contraseña es incorrecta';
+            } else if (errorMessage === 'Firebase: Error (auth/user-not-found).') {
+                document.getElementById('emptyInputEmail').innerText = '*Su correo no está registrado';
             }
         });
 };
 
+//función de guardar post en firestore 
+export const savePost = (input) => savePostfb(input);
 
 export const seePost = () => {
     onGetPost((query) => {
