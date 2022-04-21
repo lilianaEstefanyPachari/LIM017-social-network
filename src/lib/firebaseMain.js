@@ -129,10 +129,10 @@ export const savePostfb = (input) => {
 };
 
 //Imprimir data/post en la página
-export const seePostFb = () => {
-    const querySnapshot = getDocs(collection(db, "post"));
-    return querySnapshot
-};
+// export const seePostFb = () => {
+//     const querySnapshot = getDocs(collection(db, "post"));
+//     return querySnapshot
+// };
 
 //actulizar data/post en tiempo real y en orden descendente
 export const onGetPost = (callback) => onSnapshot(query(collection(db, "post"), orderBy('date', 'desc')), callback)

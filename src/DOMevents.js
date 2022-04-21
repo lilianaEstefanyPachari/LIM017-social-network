@@ -1,6 +1,5 @@
 import { onNavigate } from "./main.js";
-import { registerWithEmail, registerWithGoogle, login } from './lib/controller.js';
-import { logOutfb, savePostfb } from './lib/firebaseMain.js';
+import { registerWithEmail, registerWithGoogle, login, logOut, savePost } from './lib/controller.js';
 
 
 export const loginEvents = () => {
@@ -102,7 +101,7 @@ export const homeEvents = () => {
     // evento del boton Log Out
     const iconLogOut = document.getElementById('logOutIcon');
     iconLogOut.addEventListener('click', () => {
-        logOutfb();
+        logOut();
         onNavigate('/');
         loginEvents();
     });
@@ -112,7 +111,7 @@ export const homeEvents = () => {
     const inputPost = document.querySelectorAll('.postInput');
     btnPost.forEach(btn => btn.addEventListener('click', () => {
         inputPost.forEach(e => {
-            savePostfb(e.value);
+            savePost(e.value);
             e.value = '';
         })
     }))
