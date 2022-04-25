@@ -1,5 +1,5 @@
 import { onNavigate } from "./routes.js";
-import { registerWithEmail, registerWithGoogle, login, logOut, savePost } from './lib/controller.js';
+import { registerWithEmail, registerWithGoogle, login, logOut, savePost, editStatus, updatePost, docId, changeEditStatus } from './lib/controller.js';
 
 
 export const loginEvents = () => {
@@ -111,8 +111,16 @@ export const homeEvents = () => {
     const inputPost = document.querySelectorAll('.postInput');
     btnPost.forEach(btn => btn.addEventListener('click', () => {
         inputPost.forEach(e => {
-            savePost(e.value);
+            if (!editStatus) {
+                savePost(e.value);
+            } else {
+                updatePost(docId, {
+                    post: e.value,
+                })
+                changeEditStatus()
+            }
             e.value = '';
+
         })
     }))
 };

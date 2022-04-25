@@ -15,10 +15,13 @@ import {
     collection,
     addDoc,
     serverTimestamp,
-    getDocs,
     onSnapshot,
     query,
-    orderBy
+    orderBy,
+    deleteDoc,
+    doc,
+    getDoc,
+    updateDoc,
 
 } from "./firebaseMain.js";
 
@@ -213,11 +216,25 @@ export const savePost = (input) => {
         console.error("Error adding document: ", e);
 
     });
-}
+};
 
 //AÑADIENDO AQUÍ !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 //funciónpara actualización de post en timepo real
 export const onGetPost = (callback) => onSnapshot(query(collection(db, "post"), orderBy('date', 'desc')), callback);
+
+//fuincion para elimnar
+export const deletePost = (id) => deleteDoc(doc(db, "post", id));
+
+//Función para editar post 
+export const getPostForEdit = (id) => getDoc(doc(db, "post", id));
+//variable global para esatdo de post
+export let editStatus = false;
+export const changeEditStatus = () => {
+    editStatus = false;
+}
+export let docId = '';
+//función para actualizar post
+export const updatePost = (id, newPost) => updateDoc(doc(db, "post", id), newPost);
 
 export const seePost = () => {
     return onGetPost((query) => {
@@ -238,10 +255,38 @@ export const seePost = () => {
             </div>
             <div class="likeIcon">
             </div>
-
+            <div class="optionHide  ${doc.id}" style="display:none;">
+            <button class="btnDelete" data-id="${doc.id}">Eliminar</button>
+            <button class="btnEdit" data-id="${doc.id}">Editar</button>
             </div>
             `
             console.log(`${doc.data().date.toDate()}`);
+            const postUserId = doc.data().id;
+            if (postUserId === auth.currentUser.uid) {
+                const option = document.querySelector(`.${doc.id}`);
+                option.style.display = 'block';
+            };
+
+
+            const containerPostPublic = document.getElementById('postPublic');
+            const buttonDelete = containerPostPublic.querySelectorAll('.btnDelete');
+            buttonDelete.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    deletePost(e.target.dataset.id);
+                })
+            });
+            const buttonEdit = containerPostPublic.querySelectorAll('.btnEdit');
+            buttonEdit.forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    getPostForEdit(e.target.dataset.id)
+                        .then((doc) => {
+                            const postData = doc.data();
+                            document.querySelector(".postInput").value = postData.post;
+                            editStatus = true;
+                            docId = doc.id;
+                        })
+                })
+            })
         });
     })
 };

@@ -46,7 +46,11 @@ import {
     getDocs,
     onSnapshot,
     query,
-    orderBy
+    orderBy,
+    deleteDoc,
+    doc,
+    getDoc,
+    updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
 
 export {
@@ -56,5 +60,9 @@ export {
     getDocs,
     onSnapshot,
     query,
-    orderBy
+    orderBy,
+    deleteDoc,
+    doc,
+    getDoc,
+    updateDoc,
 }
