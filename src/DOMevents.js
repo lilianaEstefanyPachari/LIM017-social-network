@@ -1,4 +1,4 @@
-import { onNavigate } from "./main.js";
+import { onNavigate } from "./routes.js";
 import { registerWithEmail, registerWithGoogle, login, logOut, savePost } from './lib/controller.js';
 
 
