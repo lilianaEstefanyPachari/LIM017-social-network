@@ -4,9 +4,9 @@
 
 // myFunction();
 import { loginEvents, registerEvents } from './DOMevents.js';
-import { register } from './Components/Register_user.js';
-import { login } from './Components/Login.js';
-import { home } from './Components/Home.js';
+import { register } from './Components/register.js';
+import { login } from './Components/login.js';
+import { home } from './Components/home.js';
 
 const rootDiv = document.getElementById('root');
 
