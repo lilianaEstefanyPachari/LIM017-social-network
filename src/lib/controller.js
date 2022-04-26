@@ -255,9 +255,14 @@ export const seePost = () => {
             </div>
             <div class="likeIcon">
             </div>
-            <div class="optionHide  ${doc.id}" style="display:none;">
-            <button class="btnDelete" data-id="${doc.id}">Eliminar</button>
-            <button class="btnEdit" data-id="${doc.id}">Editar</button>
+            <div class="containerOpenModalOptions">
+            <img src="../img/trespuntos.png" class="openOptions">
+            <div class="containerOptions" data-id= "${doc.id}" style="display:none;">
+                <div class="optionHide  ${doc.id}" style="display:none;">
+                    <button class="btnDelete" data-id="${doc.id}">Eliminar</button>
+                    <button class="btnEdit" data-id="${doc.id}">Editar</button>
+                </div>
+            </div>
             </div>
             `
             console.log(`${doc.data().date.toDate()}`);
