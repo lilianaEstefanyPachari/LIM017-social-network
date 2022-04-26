@@ -105,8 +105,18 @@ export const homeEvents = () => {
         onNavigate('/');
         loginEvents();
     });
+    //evento para abrir ventana modal de opciones (editar/eliminar)
+    const clickOpenModalOptions = document.querySelectorAll(".openOptions");
+    console.log(clickOpenModalOptions, 'si me reconozco')
+        //const seeContainerOptions = document.querySelectorAll(".containerOptions");
+    clickOpenModalOptions.forEach(threePoins => {
 
-    //evento para guardar Post
+            threePoins.addEventListener('click', e => {
+                console.log('estoy dando click')
+                document.getElementById(e.target.dataset.id).style.display = "block";
+            })
+        })
+        //evento para guardar Post
     const btnPost = document.querySelectorAll('.btnShare');
     const inputPost = document.querySelectorAll('.postInput');
     btnPost.forEach(btn => btn.addEventListener('click', () => {

@@ -394,6 +394,34 @@ nav {
     padding: 10px;
 }
 
+
+/* iconos de editar y eliminar*/
+
+.containerOptions {
+    display: flex;
+}
+
+.btnLike {
+    width: 20px;
+    height: 20px;
+    opacity: 70%;
+    margin: 12px 10px 0px 3px;
+}
+
+.btnDelete {
+    width: 20px;
+    height: 20px;
+    opacity: 70%;
+    margin: 12px 10px 0px 0px;
+}
+
+.btnEdit {
+    width: 20px;
+    height: 20px;
+    opacity: 70%;
+    margin: 12px 10px 0px 0px;
+}
+
 @media screen and (min-width:760px) {
     body {
         background: rgb(249, 255, 255);
