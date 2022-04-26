@@ -1,13 +1,15 @@
 // importamos la funcion que vamos a testear
 
 
-import { registerWithEmail } from '../src/lib/controller.js';
+//import { registerWithEmail } from '../src/lib/controller.js';
+import { onNavigate } from '../src/routes.js'
 
 jest.mock('../src/lib/firebaseMain.js');
 
 
-describe('Registarse con email y contraseña', () => {
+describe('que rutee', () => {
     it('debería ser una función', () => {
-        expect(typeof registerWithEmail).toBe('function');
+        document.body.innerHTML = '<div id="root"></div>'
+        expect(typeof onNavigate).toBe('function');
     });
 });

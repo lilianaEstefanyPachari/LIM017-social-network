@@ -255,14 +255,12 @@ export const seePost = () => {
             </div>
             <div class="likeIcon">
             </div>
-            <div class="containerOpenModalOptions">
-            <img src="../img/trespuntos.png" class="openOptions">
-            <div class="containerOptions" data-id= "${doc.id}" style="display:none;">
+            <div class="containerOptions">
+            <img src="./img/iconolike.png" class="btnLike"></img>
                 <div class="optionHide  ${doc.id}" style="display:none;">
-                    <button class="btnDelete" data-id="${doc.id}">Eliminar</button>
-                    <button class="btnEdit" data-id="${doc.id}">Editar</button>
+                    <img src="./img/iconoeliminar.png" class="btnDelete" data-id="${doc.id}"></img>
+                    <img src="./img/iconoeditar.png" class="btnEdit" data-id="${doc.id}"></img>
                 </div>
-            </div>
             </div>
             `
             console.log(`${doc.data().date.toDate()}`);
