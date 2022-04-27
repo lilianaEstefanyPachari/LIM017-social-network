@@ -141,6 +141,9 @@ body {
     justify-content: center;
 }
 
+.helpPotatoesTittleRegister {
+    text-align: center;
+}
 .papasImg {
     display: flex;
     justify-content: space-around;

@@ -1,6 +1,31 @@
-//LINKS CONFIGURACIÓN
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+import {
+    initializeApp, 
+    getFirestore,
+    getAuth,
+    createUserWithEmailAndPassword,
+    updateProfile,
+    sendEmailVerification,
+    GoogleAuthProvider,
+    signInWithPopup,
+    signInWithEmailAndPassword,
+    signOut,
+
+    //firestore
+
+    collection,
+    addDoc,
+    serverTimestamp,
+    onSnapshot,
+    query,
+    orderBy,
+    deleteDoc,
+    doc,
+    getDoc,
+    updateDoc,
+
+} from './firebaseUtils.js';
+
+
 const firebaseConfig = {
     apiKey: "AIzaSyCkfzmelEoI-qm5eL4TiKDklOX6XizrGbg",
     authDomain: "help-potatoes.firebaseapp.com",
@@ -11,58 +36,83 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-export const app = initializeApp(firebaseConfig);
-// Initilize FireStore
-export const db = getFirestore(app);
+const app = initializeApp(firebaseConfig);
 
-//LINKS AUTH
-import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    updateProfile,
-    sendEmailVerification,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signInWithEmailAndPassword,
-    signOut
-}
-from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
-export {
-    createUserWithEmailAndPassword,
-    updateProfile,
-    sendEmailVerification,
-    getAuth,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signInWithEmailAndPassword,
-    signOut,
+const auth = getAuth(app);
+
+// Initilize FireStore
+const db = getFirestore(app);
+
+
+//funcion para registrar nuevo usuario
+export const registerWithEmailFb = (email, password) => {
+    return createUserWithEmailAndPassword(auth, email, password);
 };
 
-//LINKS FIRESTORE
-import {
-    collection,
-    addDoc,
-    serverTimestamp,
-    getDocs,
-    onSnapshot,
-    query,
-    orderBy,
-    deleteDoc,
-    doc,
-    getDoc,
-    updateDoc,
-} from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+//actualizar perfil de usuario registrado con email
+ export const updateProfileWithEmailFb = (name,photo) => { 
+    return updateProfile(auth.currentUser, {
+        displayName: name,
+        photoURL: photo,
+    });
+};
+ 
+//enviar email de verificación
+export const sendEmailFb = () => {
+    return sendEmailVerification(auth.currentUser);
+};
 
-export {
-    collection,
-    addDoc,
-    serverTimestamp,
-    getDocs,
-    onSnapshot,
-    query,
-    orderBy,
-    deleteDoc,
-    doc,
-    getDoc,
-    updateDoc,
-}
+//registarse con google (LogInWithGoogle too)
+const provider = new GoogleAuthProvider();
+
+export const registerWithGoogleFb = () => {
+    return signInWithPopup(auth, provider);
+};
+
+ //actualizar perfil de usuario registrado con google
+export const updateProfileWithGoogleFb = (photo) => { 
+    return updateProfile(auth.currentUser, {
+        photoURL: photo,
+    });
+};
+
+//Iniciar sesión con email y contraseña
+export const loginFb = (email, password) => {
+    return signInWithEmailAndPassword(auth, email, password)     
+};
+
+//función de cerrar sesión
+export const logOutFb = () => {
+    return signOut(auth);
+};
+
+//Crear nuevo post y subir a la nube/data de firestore
+export const savePostfb = (input) => {
+    const user = auth.currentUser;
+    console.log(user);
+    return addDoc(collection(db, "post"), {
+        id: user.uid,
+        name: user.displayName,
+        email: user.email,
+        post: input,
+        photoURL: user.photoURL,
+        date: serverTimestamp()
+    });
+};
+
+// Obtener data de usuario 
+export const getCurrentUserFb = () => {
+    const user = auth.currentUser.uid;
+    return user;
+};
+//actulizar data/post en tiempo real y en orden descendente
+export const onGetPostFb = (callback) => onSnapshot(query(collection(db, "post"), orderBy('date', 'desc')), callback);
+
+//función para eliminar post
+export const deletePostFb = (id) => deleteDoc(doc(db, "post", id));
+
+//Función para editar post 
+export const getPostForEditFb = (id) => getDoc(doc(db, "post", id));
+
+//función para actualizar post
+export const updatePostFb = (id, newPost) => updateDoc(doc(db, "post", id), newPost);
