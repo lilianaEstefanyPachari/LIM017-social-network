@@ -1,10 +1,23 @@
-import { onNavigate } from "./routes.js";
+import { onNavigate } from './routes.js';
 import { registerWithEmail, registerWithGoogle, login, logOut, savePost, editStatus, updatePost, docId, changeEditStatus } from './lib/controller.js';
+//import { loginBtnHandler } from './loginHandler.js';
+
+export const loginBtnHandler = () => {
+    const inputEmailLogin = document.getElementById('inputEmail');
+    const inputPassLogin = document.getElementById('inputPass');
+    if (inputEmailLogin.value === '') {
+        document.getElementById('emptyInputEmail').innerText = '*Coloque su correo electrónico'
+    }
+    if (inputPassLogin.value === '') {
+        document.getElementById('emptyInputPass').innerText = '*Coloque su contraseña'
+    }
+   return login(inputEmailLogin.value, inputPassLogin.value)
+};
+
 
 
 export const loginEvents = () => {
     //btn registrate in login
-    console.log("login");
     const registerOption = document.getElementById('registerP');
     registerOption.addEventListener('click', () => {
         onNavigate('/register');
@@ -21,18 +34,7 @@ export const loginEvents = () => {
 
     //btn para iniciar sesión con email y password
     const btnLogin = document.getElementById('loginBtn');
-    btnLogin.addEventListener('click', () => {
-        const inputEmailLogin = document.getElementById('inputEmail');
-        const inputPassLogin = document.getElementById('inputPass');
-        if (inputEmailLogin.value === '') {
-            document.getElementById('emptyInputEmail').innerText = '*Coloque su correo electrónico'
-        }
-        if (inputPassLogin.value === '') {
-            document.getElementById('emptyInputPass').innerText = '*Coloque su contraseña'
-        }
-        login(inputEmailLogin.value, inputPassLogin.value)
-    })
-
+    btnLogin.addEventListener('click', loginBtnHandler)
 };
 
 
@@ -77,7 +79,7 @@ export const registerEvents = () => {
         if (inputPasswordReg.value === '') {
             document.getElementById('passError').innerText = '*Ingrese una contraseña';
         }
-        registerWithEmail(inputEmailReg.value, inputPasswordReg.value, inputNameReg.value, photoRegister);
+        return registerWithEmail(inputEmailReg.value, inputPasswordReg.value, inputNameReg.value, photoRegister);
     });
 
     //evento del boton registrar con google (jala imagen predeterminada)

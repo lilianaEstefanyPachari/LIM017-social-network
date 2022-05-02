@@ -9,10 +9,10 @@ import { loginEvents, homeEvents } from "../DOMevents.js";
 // const auth = getAuth(app);
 
 export const registerWithEmail = (email, password, name, photo) => {
-    registerWithEmailFb(email, password)
+    return registerWithEmailFb(email, password)
         .then(() => {
             updateProfileWithEmailFb(name, photo);
-            sendEmailFb()
+            return sendEmailFb()
                 .then(() => {
                     const showModalEmailVerification = document.getElementById('modalEmailV');
                     const hideModal = document.getElementById('closeModal');
@@ -66,23 +66,9 @@ export const registerWithGoogle = (photo) => {
 };
 
 export const login = (email, password) => {
-    loginFb(email, password)
+   return loginFb(email, password)
         .then((userCredential) => {
-            // Signed in
-            const user = userCredential.user;
-            console.log(user);
-            console.log('logueado con exito')
-            const userData = {
-                userName: user.displayName,
-                userState: user.emailVerified,
-                userPhoto: user.photoURL,
-                userUid: user.uid
-            }
-            return userData;
-        })
-        .then((res) => {
-            console.log(res)
-            if (res.userState === false) {
+            if (userCredential.user.emailVerified === false) {
                 logOutFb();
                 onNavigate('/');
                 loginEvents();
@@ -99,7 +85,7 @@ export const login = (email, password) => {
                 const newPost = document.getElementById('postContainer');
 
                 userProfile.innerHTML = `<div class="containerPhotoProfile">
-                <img src="${res.userPhoto}" alt="imagen de perfil" class="userPhotoURLProfile">
+                <img src="${userCredential.user.photoURL}" alt="imagen de perfil" class="userPhotoURLProfile">
                 </div>`;
 
                 newPost.innerHTML = `
