@@ -46,7 +46,7 @@ const db = getFirestore(app);
 
 //funcion para registrar nuevo usuario
 export const registerWithEmailFb = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password);
+    return createUserWithEmailAndPassword(auth, email, password)
 };
 
 //actualizar perfil de usuario registrado con email
@@ -87,6 +87,7 @@ export const logOutFb = () => {
 };
 
 //Crear nuevo post y subir a la nube/data de firestore
+
 export const savePostfb = (input) => {
     const user = auth.currentUser;
     console.log(user);
