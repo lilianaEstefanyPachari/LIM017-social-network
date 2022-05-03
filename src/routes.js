@@ -21,7 +21,7 @@ export const onNavigate = (pathname) => {
         pathname,
         window.location.origin + pathname,
     );
-    rootDiv.innerHTML = routes[pathname]();
+    return rootDiv.innerHTML = routes[pathname]();
 };
 
 const component = routes[window.location.pathname];

@@ -34,7 +34,9 @@ export const loginEvents = () => {
 
     //btn para iniciar sesión con email y password
     const btnLogin = document.getElementById('loginBtn');
-    btnLogin.addEventListener('click', loginBtnHandler)
+    btnLogin.addEventListener('click', loginBtnHandler);
+
+    return 'done';
 };
 
 
