@@ -27,7 +27,7 @@ describe('Testing onNavigate', () => {
     expect(onNavigate(pathLogin)).toEqual(loginComponent);
   });
   
-  it('Debe renderizar la vista login', () => {
+  it('Debe renderizar la vista home', () => {
     const homeComponent = home();
     expect(onNavigate(pathHome)).toEqual(homeComponent);
   });
