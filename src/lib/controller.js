@@ -40,36 +40,33 @@ export const registerWithEmail = (email, password, name, photo) => {
 export const registerWithGoogle = (photo) => {
   registerWithGoogleFb()
     .then(() => {
-            updateProfileWithGoogleFb(photo);
-            onNavigate('/home');
-            const userProfile = document.getElementById('profileContainer');
-            const newPost = document.getElementById('postContainer');
-
-            userProfile.innerHTML = `<div class="containerPhotoProfile">
-                <img src="./img/pape.png" alt="" class="iconUserDefault">
-                </div>
-                `;
-            newPost.innerHTML = `
-                <input type="text" class="postInput" placeholder="¡Hola! ¿Qué quieres compartir?">
-                <button class="btnShare">Publicar</button>`;
-            seePost();
-            homeEvents();
-        }).catch((error) => {
-            // Handle Errors here.
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            // The email of the user's account used.
-            const email = error.email;
-        });
-
+      updateProfileWithGoogleFb(photo);
+      onNavigate('/home');
+      const userProfile = document.getElementById('profileContainer');
+      const newPost = document.getElementById('postContainer');
+      userProfile.innerHTML = `<div class="containerPhotoProfile">
+      <img src="./img/pape.png" alt="" class="iconUserDefault">
+      </div>
+      `;
+      newPost.innerHTML = `
+      <input type="text" class="postInput" placeholder="¡Hola! ¿Qué quieres compartir?">
+      <button class="btnShare">Publicar</button>`;
+      seePost();
+      homeEvents();
+      }).catch((error) => {
+    // Handle Errors here.
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    // The email of the user's account used.
+      const email = error.email;
+      });
 };
-
-export const login = (email, password) => {
+export const login = (email, password) =>{
    return loginFb(email, password)
         .then((userCredential) => {
             if (userCredential.user.emailVerified === false) {
-                logOutFb();
-                onNavigate('/');
+  logOutFb();
+    onNavigate('/');
                 loginEvents();
                 const showModalLogin = document.getElementById('modalLogIn');
                 const closeModalLogin = document.getElementById('closeModalLogIn');
