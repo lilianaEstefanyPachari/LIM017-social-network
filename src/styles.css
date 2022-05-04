@@ -455,13 +455,16 @@ nav {
     .helpPotatoesTittle p {
         font-size: 25px;
     }
-    .helpPotatoesTittleRegister {
+    .tittleRegister{
+        font-size: 46px;
+    }
+    .helpPotatoesDescripRegister {
         height: 100%;
         padding-top: 20px;
-        font-size: 46px;
+        font-size: 26px;
         background-image: url(./img/imgPrincipal.png);
         background-repeat: no-repeat;
-        background-position: bottom;
+        background-position: center;
         background-size: 77%;
     }
     .loginSubContainer {

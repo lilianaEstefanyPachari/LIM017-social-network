@@ -3,7 +3,8 @@ export const register = () => {
     <section class="registerContainerMain">
     <section class="subRegisterContainerMain">
         <div class="titleGrid">
-            <h1 class="helpPotatoesTittleRegister">Help Potatoes</h1>
+            <h1 class= "tittleRegister">Help Potatoes</h1>
+            <p class="helpPotatoesDescripRegister">¡Ven y conecta con otros padres y madres!</p>
         </div>
         <div class= "containerRegisterGrid">
             <p class="registerTittle">Regístrate</p>
