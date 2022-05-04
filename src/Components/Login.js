@@ -1,5 +1,5 @@
 export const login = () => {
-    const loginTemplate = `
+  const loginTemplate = `
       <section class="loginContainer">
         <section class="subLoginContainer">
          <div class="helpPotatoesTittle">
@@ -35,6 +35,5 @@ export const login = () => {
       </section>
     `;
 
-
-    return loginTemplate;
-}
+  return loginTemplate;
+};

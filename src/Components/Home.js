@@ -1,5 +1,5 @@
 export const home = () => {
-    const homepage = `
+  const homepage = `
     <section class="homePageContainer">
         <header>
         <nav> 
@@ -18,5 +18,5 @@ export const home = () => {
             </section>
         </section>
     </section>`;
-    return homepage;
+  return homepage;
 };
