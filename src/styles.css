@@ -20,6 +20,9 @@ body {
 .helpPotatoesTittle h1 {
     margin-bottom: 5px;
 }
+.helpPotatoesTittle p {
+    font-size: 17px;
+}
 
 .rootClass {
     width: 100%;
@@ -449,13 +452,19 @@ nav {
         background-position: bottom;
         background-size: 77%;
     }
-    .helpPotatoesTittleRegister {
+    .helpPotatoesTittle p {
+        font-size: 25px;
+    }
+    .tittleRegister{
+        font-size: 46px;
+    }
+    .helpPotatoesDescripRegister {
         height: 100%;
         padding-top: 20px;
-        font-size: 46px;
+        font-size: 26px;
         background-image: url(./img/imgPrincipal.png);
         background-repeat: no-repeat;
-        background-position: bottom;
+        background-position: center;
         background-size: 77%;
     }
     .loginSubContainer {
