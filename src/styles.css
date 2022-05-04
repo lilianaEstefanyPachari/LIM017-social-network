@@ -20,6 +20,9 @@ body {
 .helpPotatoesTittle h1 {
     margin-bottom: 5px;
 }
+.helpPotatoesTittle p {
+    font-size: 17px;
+}
 
 .rootClass {
     width: 100%;
@@ -448,6 +451,9 @@ nav {
         background-repeat: no-repeat;
         background-position: bottom;
         background-size: 77%;
+    }
+    .helpPotatoesTittle p {
+        font-size: 25px;
     }
     .helpPotatoesTittleRegister {
         height: 100%;

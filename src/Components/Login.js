@@ -4,6 +4,7 @@ export const login = () => {
         <section class="subLoginContainer">
          <div class="helpPotatoesTittle">
             <h1> Help Potatoes</h1>
+            <p>¡Ven y conecta con otros padres y madres!</p>
          </div>
          <div class="loginSubContainer"> 
            <p class="loginTittle">Iniciar sesión</p>
