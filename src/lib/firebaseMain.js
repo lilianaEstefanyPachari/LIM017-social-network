@@ -9,6 +9,7 @@ import {
     signInWithPopup,
     signInWithEmailAndPassword,
     signOut,
+    
 
     //firestore
 
@@ -87,7 +88,6 @@ export const logOutFb = () => {
 };
 
 //Crear nuevo post y subir a la nube/data de firestore
-
 export const savePostfb = (input) => {
     const user = auth.currentUser;
     console.log(user);
@@ -115,5 +115,21 @@ export const deletePostFb = (id) => deleteDoc(doc(db, "post", id));
 //Función para editar post 
 export const getPostForEditFb = (id) => getDoc(doc(db, "post", id));
 
-//función para actualizar post
+// //función para actualizar post v1
 export const updatePostFb = (id, newPost) => updateDoc(doc(db, "post", id), newPost);
+
+//función para actualizar post v2 con async y await
+// export const updatePostFb = async (id, newPost) => {
+//     const result = await doc(db, "post", id);
+//     return updateDoc(result, newPost);
+// }
+
+//función para actualizar post  v3 intento con then y catch
+// export const updatePostFb = (id, newPost) => {
+//     const result = doc(db, "post", id)
+//     .then((res)=>{
+//         return res;
+//     })
+//     return updateDoc(result, newPost);
+// }
+
