@@ -1,5 +1,34 @@
 # Creando una Red Social
+# Help Potataoes
+### Definición:
+Help Potatoes es una red social guiada a padres, madres, docentes o personas que convivan de cerca con niños y desean comparar o comaprtir experiencias, contrar formas de resolver un problema, bsucar nuevas estrategias de crianza o conectar con otros padres y madres.
+## Público objetivo e historias de usuario
+Para determianr si nuestra red social sería de interés se realizo una serie de encuestas a distintos padres y madres de familia (link: https://docs.google.com/forms/d/e/1FAIpQLSfT1Kk3URG53S0Akjz9CyZtJhkO9QcdWIy2sKcP1aFW-l_mig/viewform). Según las respuestas y comentarios se determinaron las **historias de usuario** que se trabajarían a lo largo de los sprints:
+- **HU1**: El usuario necesita poder logearse en nuestra red social, con un correo existente o por medio de un correo de google. Se le debe marcar al usuario si algún campo a rellenar se encuentra vacío.
+- **HU2: **El usuario debe poder visualizar su nombre de usuario e ícono elegido en pantalla de homepage de la red social y debe poder hacer una publicación en forma de comentario.
+- **HU3:** El usuario debe poder editar, eliminar la publicación, al presionar ciertos iconos de la pantalla.
+- **HU4:** El usuario debe poder salir de la red social al presioanr un ícono.
+- **HU5:** El usuario debe poder recibir likes, uno por persona y que estos sean contabilizados.
 
+## Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
+### Baja fidelidad:
+##### Mobile:
+![pantalla principalBaja fidelidad](https://user-images.githubusercontent.com/98667463/166726531-3b6868c4-c99b-4c26-b2d6-7f3de5d4f76f.png)
+![RegistrateBaja fidelidad](https://user-images.githubusercontent.com/98667463/166726532-ffdfdf54-d619-4752-b929-850e111649e8.png)
+![pantalla 3Baja fidelidad](https://user-images.githubusercontent.com/98667463/166726527-92165023-30c3-4236-9130-981f7220732d.png)
+##### Desktop:
+![pantalla principalBaja fidelidad](https://user-images.githubusercontent.com/98667463/166726237-3fe24681-5846-436a-8b6e-727bba8c6a81.png)
+![RegistrateBaja fidelidad](https://user-images.githubusercontent.com/98667463/166726240-978ef832-1430-4c4f-bcd6-48f874d6a709.png)
+![Pagina de inicio para publicarBaja fidelidad](https://user-images.githubusercontent.com/98667463/166726231-504db68b-5ada-4ba8-a1e3-ee26d30359ad.png)
+### Alta fidelidad: 
+##### Mobile:
+![loginMobile](https://user-images.githubusercontent.com/98620685/166722898-9fb75bea-ddc5-442a-b6c2-ff8a5f29a84a.jpg)
+![registerMobile](https://user-images.githubusercontent.com/98620685/166722903-e9c5e78f-e2cf-439a-89ef-5bc581c16e42.jpg)
+![homeMobile](https://user-images.githubusercontent.com/98620685/166722894-9e039391-ab06-4ab6-b3fb-dde9bea04cf7.jpg)
+##### Desktop:
+![Pantalla principalLoginDestok](https://user-images.githubusercontent.com/98667463/166725931-b799a517-3260-4e6e-9bf5-c7af7e6fa090.png)
+![REGISTRATEregisterDestok](https://user-images.githubusercontent.com/98667463/166725939-64ac3333-3bcd-4046-8c68-10ed9d5d2ea6.png)
+![Pagina de inicio para publicarHome](https://user-images.githubusercontent.com/98667463/166725924-dfe5b6de-761e-48a1-be37-ea16ae7b9339.png)
 ## Índice
 
 * [1. Preámbulo](#1-preámbulo)

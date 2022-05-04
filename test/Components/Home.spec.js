@@ -1,6 +1,6 @@
-import { home } from '../../src/Components/Home.js'; 
-import { homeEvents } from '../../src/DOMevents.js';
-import { addDoc, signOut } from '../../src/lib/FirebaseUtils.js';
+import{home}from'../../src/Components/Home.js'; 
+import{homeEvents}from'../../src/DOMevents.js';
+import{addDoc, signOut}from'../../src/lib/FirebaseUtils.js';
 jest.mock('../../src/lib/FirebaseUtils.js');
 jest.mock('../../src/routes.js');
 
@@ -16,5 +16,4 @@ describe('Home', () => {
       console.log(signOut.mock)
     //   expect(signOut.mock.calls[0]).toEqual([{}]);
     });
-
   });

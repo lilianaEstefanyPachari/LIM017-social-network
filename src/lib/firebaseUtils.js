@@ -1,6 +1,6 @@
-//LINKS CONFIGURACIÓN
-export { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-export  { getFirestore } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+// LINKS CONFIGURACIÓN
+export { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js';
+export { getFirestore } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js';
 
 //LINKS AUTH
 export  {
