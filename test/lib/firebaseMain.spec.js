@@ -1,5 +1,5 @@
-import { registerWithEmailFb, updateProfileWithEmailFb,loginFb, deletePostFb,getPostForEditFb,updatePostFb  } from '../../src/lib/firebaseMain';
-import { createUserWithEmailAndPassword, updateProfile,signInWithEmailAndPassword,deleteDoc,getDoc,updateDoc } from '../../src/lib/firebaseUtils';
+import { registerWithEmailFb, updateProfileWithEmailFb,updateProfileWithGoogleFb,sendEmailFb,registerWithGoogleFb,loginFb, deletePostFb,getPostForEditFb,updatePostFb,savePostfb,getCurrentUserFb,logOutFb } from '../../src/lib/firebaseMain';
+import { createUserWithEmailAndPassword, updateProfile,sendEmailVerification,signInWithPopup,signInWithEmailAndPassword,deleteDoc,getDoc,updateDoc,addDoc,signOut } from '../../src/lib/firebaseUtils';
 jest.mock('../../src/lib/firebaseUtils.js');
 
 //test
@@ -27,9 +27,29 @@ describe('testing updateProfileWithEmailFb',() => {
   
  });
 
-
  //tercer test
-describe('testing loginFb',() => {
+describe('testing updateProfileWithGoogleFb',() => {
+  it('funciona y recibe los argumentos correctos', async () => {
+   const result = await updateProfileWithGoogleFb('./img/pape.png');
+  expect(updateProfile.mock.lastCall[1].photoURL).toBe('./img/pape.png');
+
+     console.log(updateProfile.mock);
+    });
+  
+ });
+
+//cuarto test
+describe('testing sendEmailFb',() => {
+  it('llama al serivico de firebase', async () => {
+   const result = await sendEmailFb();
+   expect(sendEmailVerification).toHaveBeenCalled();
+  }); 
+ });
+
+
+
+  //quinto test
+  describe('testing loginFb',() => {
   it('funciona y recibe los argumentos correctos', async () => {
    const result = await loginFb('randomEmail@gmail.com','1234567');
    expect(JSON.stringify(result.user)).toBe(JSON.stringify({email: 'randomEmail@gmail.com',password: '1234567',emailVerified: true}));
@@ -42,7 +62,50 @@ describe('testing loginFb',() => {
   
  });
 
-  //cuarto test
+//sexto test
+describe('testing savePostfb',() => {
+    it('llama al serivico de firebase', async () => {
+     const result = await savePostfb('the new post');
+     expect(addDoc).toHaveBeenCalled();
+  
+     expect(result).toStrictEqual({
+      id: 'fakeUserId',
+      name: 'random name',
+      email: 'random@gmail.com',
+      post: 'the new post',
+      photoURL: './src/pape.png',
+      date: {},
+     });
+    });
+  
+   });
+
+//septimo test
+describe('testing getPostForEditFb',() => {
+  it('llama al serivico de firebase', async () => {
+   const result = await getPostForEditFb('randomID');
+   expect(getDoc).toHaveBeenCalled();
+   expect(getDoc.mock.calls).toHaveLength(1);
+  });
+  
+ });
+
+ //octavo test
+ describe('testing updatePostFb',() => {
+  it('llama al serivico de firebase', async () => {
+   const result = await updatePostFb('randomID',{post: 'new update content'});
+   expect(updateDoc).toHaveBeenCalled();
+   expect(result).toStrictEqual({post: 'new update content'});
+   expect(updateDoc.mock.calls).toHaveLength(1);
+  //  expect(updateDoc.mock.calls[0][1]).toBe('object');
+
+   console.log(updateDoc.mock)
+  
+  });
+  
+ });
+
+  //noveno test
 describe('testing deletePostFb',() => {
   it('llama al serivico de firebase', async () => {
    const result = await deletePostFb('randomID');
@@ -50,23 +113,37 @@ describe('testing deletePostFb',() => {
   });
   
  });
-//quinto test
- describe('testing savePostfb',() => {
+
+//decimo test
+describe('testing registerWithGoogleFb',() => {
   it('llama al serivico de firebase', async () => {
-   const result = await getPostForEditFb('randomID');
-   expect(getDoc).toHaveBeenCalled();
-  });
-  
+   const result = await registerWithGoogleFb();
+   expect(signInWithPopup).toHaveBeenCalled();
+   expect(signInWithPopup.mock.calls).toHaveLength(1);
+  }); 
+ });
+ 
+ 
+//test
+describe('testing getCurrentUserFb',() => {
+  it('llama al serivico de firebase', () => {
+   const result = getCurrentUserFb();
+   expect(result).toBe('fakeUserId');
+  }); 
  });
 
- //sexto test
- describe('testing updatePostFb',() => {
+
+// test
+ logOutFb
+ describe('testing  logOutFb',() => {
   it('llama al serivico de firebase', async () => {
-   const result = await updatePostFb('randomID','random content');
-   expect(updateDoc).toHaveBeenCalled();
-  });
-  
+   const result = await  logOutFb();
+   expect(signOut).toHaveBeenCalled();
+   expect(signOut.mock.calls).toHaveLength(1);
+  }); 
  });
+ 
+
 
 
 

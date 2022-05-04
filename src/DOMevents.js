@@ -2,20 +2,6 @@ import { onNavigate } from './routes.js';
 import { registerWithEmail, registerWithGoogle, login, logOut, savePost, editStatus, updatePost, docId, changeEditStatus } from './lib/controller.js';
 //import { loginBtnHandler } from './loginHandler.js';
 
-export const loginBtnHandler = () => {
-    const inputEmailLogin = document.getElementById('inputEmail');
-    const inputPassLogin = document.getElementById('inputPass');
-    if (inputEmailLogin.value === '') {
-        document.getElementById('emptyInputEmail').innerText = '*Coloque su correo electrónico'
-    }
-    if (inputPassLogin.value === '') {
-        document.getElementById('emptyInputPass').innerText = '*Coloque su contraseña'
-    }
-   return login(inputEmailLogin.value, inputPassLogin.value)
-};
-
-
-
 export const loginEvents = () => {
     //btn registrate in login
     const registerOption = document.getElementById('registerP');
@@ -34,9 +20,17 @@ export const loginEvents = () => {
 
     //btn para iniciar sesión con email y password
     const btnLogin = document.getElementById('loginBtn');
-    btnLogin.addEventListener('click', loginBtnHandler);
-
-    return 'done';
+    btnLogin.addEventListener('click', () => {
+        const inputEmailLogin = document.getElementById('inputEmail');
+        const inputPassLogin = document.getElementById('inputPass');
+        if (inputEmailLogin.value === '') {
+            document.getElementById('emptyInputEmail').innerText = '*Coloque su correo electrónico'
+        }
+        if (inputPassLogin.value === '') {
+            document.getElementById('emptyInputPass').innerText = '*Coloque su contraseña'
+        }
+       return login(inputEmailLogin.value, inputPassLogin.value)
+    },);
 };
 
 

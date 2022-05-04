@@ -1,9 +1,17 @@
 export const initializeApp = () => ({});
-export const getAuth = () => ({});
+export const getAuth = () => {
+    return {
+    currentUser: {
+        uid: 'fakeUserId',
+        displayName:'random name',
+        email:'random@gmail.com',
+        photoURL:'./src/pape.png',
+    },
+}};
 export const getFirestore = () => ({});
 export const GoogleAuthProvider = jest.fn(() => {});
 export const auth = {
-    currentUser:{
+    currentUser: {
         uid: 'fakeUserId',
         displayName: 'random name',
         email:'random@gmail.com',
@@ -17,7 +25,7 @@ export const createUserWithEmailAndPassword = jest.fn((auth,email,pass) => Promi
 // const obj = { displayName: displayName, photoURL: photoURL, }
 export const updateProfile = jest.fn((currentUser,{ displayName: displayName, photoURL: photoURL, }) => ({ }));
 
-export const sendEmailVerification = () => Promise.resolve({});
+export const sendEmailVerification = jest.fn((obj) => Promise.resolve({}));
 
 export const signInWithEmailAndPassword = jest.fn((auth, email, password) => Promise.resolve(
     {user:{
@@ -27,15 +35,19 @@ export const signInWithEmailAndPassword = jest.fn((auth, email, password) => Pro
     } })
 
 );
+export const signInWithPopup = jest.fn((auth,provider) => Promise.resolve({}));
 
+
+export const db = {};
 export const deleteDoc = jest.fn((docName) => Promise.resolve({}));
 export const getDoc = jest.fn((docName) => Promise.resolve({}));
-export const updateDoc = jest.fn((docData, newpost) => Promise.resolve({}));
+export const updateDoc = jest.fn((docData, newpost) => Promise.resolve(newpost));
+export const addDoc = jest.fn((collection,values) => Promise.resolve(values));;
 
 export const doc = jest.fn((db,post,id) => Promise.resolve({}));
 export const collection = jest.fn((db,collectionName) => Promise.resolve({}));
-export const db = {};
-export const serverTimestamp = () => Promise.resolve({});
+
+export const serverTimestamp = () => { return {}};
 export const signOut = jest.fn(() => Promise.resolve({}));
 
 
