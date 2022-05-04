@@ -1,6 +1,6 @@
-import {
-    registerWithEmailFb, updateProfileWithEmailFb, sendEmailFb, registerWithGoogleFb, updateProfileWithGoogleFb,
-    loginFb,logOutFb, savePostfb, onGetPostFb, deletePostFb, getPostForEditFb, updatePostFb, getCurrentUserFb
+import{
+  registerWithEmailFb, updateProfileWithEmailFb, sendEmailFb, registerWithGoogleFb, updateProfileWithGoogleFb,
+  loginFb,logOutFb, savePostfb, onGetPostFb, deletePostFb, getPostForEditFb, updatePostFb, getCurrentUserFb
 } from "./firebaseMain.js";
 
 import { onNavigate } from "../routes.js";
@@ -9,38 +9,37 @@ import { loginEvents, homeEvents } from "../DOMevents.js";
 // const auth = getAuth(app);
 
 export const registerWithEmail = (email, password, name, photo) => {
-    return registerWithEmailFb(email, password)
+  return registerWithEmailFb(email, password)
+    .then(() => {
+      updateProfileWithEmailFb(name, photo);
+      return sendEmailFb()
         .then(() => {
-            updateProfileWithEmailFb(name, photo);
-            return sendEmailFb()
-                .then(() => {
-                    const showModalEmailVerification = document.getElementById('modalEmailV');
-                    const hideModal = document.getElementById('closeModal');
-                    showModalEmailVerification.style.display = 'block';
-                    hideModal.addEventListener('click', () => {
-                        showModalEmailVerification.style.display = 'none';
+          const showModalEmailVerification = document.getElementById('modalEmailV');
+          const hideModal = document.getElementById('closeModal');
+          showModalEmailVerification.style.display = 'block';
+          hideModal.addEventListener('click', () => {
+          showModalEmailVerification.style.display = 'none';
                     })
-                })
         })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            console.log(errorMessage);
-            if (errorMessage === 'Firebase: Error (auth/email-already-in-use).') {
-                document.getElementById('errorEmail').innerText = 'El email ya se encuentra registrado';
-            } else if (errorMessage === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
-                document.getElementById('passError').innerText = 'La contraseña debe tener más de 6 caracteres';
-            } else if (errorMessage === 'Firebase: Error (auth/invalid-email).') {
-                document.getElementById('errorEmail').innerText = '*Coloque su email';
-            }
-        });
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      console.log(errorMessage);
+      if (errorMessage === 'Firebase: Error (auth/email-already-in-use).') {
+        document.getElementById('errorEmail').innerText = 'El email ya se encuentra registrado';
+      } else if (errorMessage === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
+        document.getElementById('passError').innerText = 'La contraseña debe tener más de 6 caracteres';
+      } else if (errorMessage === 'Firebase: Error (auth/invalid-email).') {
+        document.getElementById('errorEmail').innerText = '*Coloque su email';
+      }
+    });
 
 };
 
-
 export const registerWithGoogle = (photo) => {
-    registerWithGoogleFb()
-        .then(() => {
+  registerWithGoogleFb()
+    .then(() => {
             updateProfileWithGoogleFb(photo);
             onNavigate('/home');
             const userProfile = document.getElementById('profileContainer');

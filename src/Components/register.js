@@ -1,5 +1,5 @@
 export const register = () => {
-    const registerTemplate = `
+  const registerTemplate = `
     <section class="registerContainerMain">
     <section class="subRegisterContainerMain">
         <div class="titleGrid">
@@ -42,4 +42,4 @@ export const register = () => {
     </section>   
      `;
     return registerTemplate;
-}
+};
