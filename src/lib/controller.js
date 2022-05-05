@@ -44,7 +44,7 @@ export const registerWithEmail = (email, password, name, photo) => {
       } else if (errorMessage === 'Firebase: Password should be at least 6 characters (auth/weak-password).') {
         document.getElementById('passError').innerText = 'La contraseña debe tener más de 6 caracteres';
       } else if (errorMessage === 'Firebase: Error (auth/invalid-email).') {
-        document.getElementById('errorEmail').innerText = '*Coloque su email';
+        document.getElementById('errorEmail').innerText = '*Ingrese su email';
       }
     });
 };

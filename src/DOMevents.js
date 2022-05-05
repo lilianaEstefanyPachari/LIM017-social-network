@@ -66,7 +66,7 @@ export const registerEvents = () => {
     const inputPasswordReg = document.getElementById('inputPassword');
     const inputNameReg = document.getElementById('inputName');
     if (inputNameReg.value === '') {
-      document.getElementById('emptyInputName').innerText = '*Colocar su nombre de usuario';
+      document.getElementById('emptyInputName').innerText = '*Ingrese su nombre de usuario';
     }
     if (inputPasswordReg.value === '') {
       document.getElementById('passError').innerText = '*Ingrese una contraseña';
