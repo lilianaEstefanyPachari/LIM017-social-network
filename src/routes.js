@@ -1,4 +1,5 @@
 // Este es el punto de entrada de tu aplicacion
+/* eslint-disable import/no-cycle */
 import { register } from './Components/register.js';
 import { login } from './Components/Login.js';
 import { home } from './Components/Home.js';

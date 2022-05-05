@@ -69,7 +69,7 @@ export const updateProfileWithGoogleFb = (photo) => {
 
 // Iniciar sesión con email y contraseña
 export const loginFb = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password);
+  return signInWithEmailAndPassword(auth, email, password);
 };
 
 // función de cerrar sesión
