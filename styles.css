@@ -20,6 +20,9 @@ body {
 .helpPotatoesTittle h1 {
     margin-bottom: 5px;
 }
+.helpPotatoesTittle p {
+    font-size: 17px;
+}
 
 .rootClass {
     width: 100%;
@@ -141,6 +144,9 @@ body {
     justify-content: center;
 }
 
+.helpPotatoesTittleRegister {
+    text-align: center;
+}
 .papasImg {
     display: flex;
     justify-content: space-around;
@@ -394,6 +400,34 @@ nav {
     padding: 10px;
 }
 
+
+/* iconos de editar y eliminar*/
+
+.containerOptions {
+    display: flex;
+}
+
+.btnLike {
+    width: 20px;
+    height: 20px;
+    opacity: 70%;
+    margin: 12px 10px 0px 3px;
+}
+
+.btnDelete {
+    width: 20px;
+    height: 20px;
+    opacity: 70%;
+    margin: 12px 10px 0px 0px;
+}
+
+.btnEdit {
+    width: 20px;
+    height: 20px;
+    opacity: 70%;
+    margin: 12px 10px 0px 0px;
+}
+
 @media screen and (min-width:760px) {
     body {
         background: rgb(249, 255, 255);
@@ -418,13 +452,19 @@ nav {
         background-position: bottom;
         background-size: 77%;
     }
-    .helpPotatoesTittleRegister {
+    .helpPotatoesTittle p {
+        font-size: 25px;
+    }
+    .tittleRegister{
+        font-size: 46px;
+    }
+    .helpPotatoesDescripRegister {
         height: 100%;
         padding-top: 20px;
-        font-size: 46px;
+        font-size: 26px;
         background-image: url(./img/imgPrincipal.png);
         background-repeat: no-repeat;
-        background-position: bottom;
+        background-position: center;
         background-size: 77%;
     }
     .loginSubContainer {
