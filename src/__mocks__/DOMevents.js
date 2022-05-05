@@ -7,10 +7,8 @@ export const loginEvents = () => {
   });
 };
 export const registerEvents = () => {
-  const inputEmailReg = document.getElementById('inputEmail');
   const inputPasswordReg = document.getElementById('inputPassword');
   const inputNameReg = document.getElementById('inputName');
-  const photoRegister = document.getElementById('pape').src;
   if (inputNameReg.value === '') {
     document.getElementById('emptyInputName').innerText = '*Colocar su nombre de usuario';
   }
@@ -23,9 +21,9 @@ export const loginBtnHandler = () => {
   const inputEmailLogin = document.getElementById('inputEmail');
   const inputPassLogin = document.getElementById('inputPass');
   if (inputEmailLogin.value === '') {
-    document.getElementById('emptyInputEmail').innerText = '*Coloque su correo electrónico'
+    document.getElementById('emptyInputEmail').innerText = '*Coloque su correo electrónico';
   }
   if (inputPassLogin.value === '') {
-    document.getElementById('emptyInputPass').innerText = '*Coloque su contraseña'
+    document.getElementById('emptyInputPass').innerText = '*Coloque su contraseña';
   }
 };
