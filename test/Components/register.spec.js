@@ -40,5 +40,4 @@ describe('testing register component', () => {
   //   console.log(registerWithEmail);
   //   expect(registerWithEmail).toHaveBeenCalled();
   // });
-
 });

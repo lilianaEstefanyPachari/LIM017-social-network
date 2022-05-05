@@ -41,5 +41,5 @@ export const register = () => {
         </section>
     </section>   
      `;
-    return registerTemplate;
+  return registerTemplate;
 };

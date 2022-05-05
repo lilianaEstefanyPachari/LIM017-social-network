@@ -1,39 +1,34 @@
 import {
-    initializeApp, 
-    getFirestore,
-    getAuth,
-    createUserWithEmailAndPassword,
-    updateProfile,
-    sendEmailVerification,
-    GoogleAuthProvider,
-    signInWithPopup,
-    signInWithEmailAndPassword,
-    signOut,
-    
-
-    //firestore
-
-    collection,
-    addDoc,
-    serverTimestamp,
-    onSnapshot,
-    query,
-    orderBy,
-    deleteDoc,
-    doc,
-    getDoc,
-    updateDoc,
-
+  initializeApp,
+  getFirestore,
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  sendEmailVerification,
+  GoogleAuthProvider,
+  signInWithPopup,
+  signInWithEmailAndPassword,
+  signOut,
+  // firestore
+  collection,
+  addDoc,
+  serverTimestamp,
+  onSnapshot,
+  query,
+  orderBy,
+  deleteDoc,
+  doc,
+  getDoc,
+  updateDoc,
 } from './firebaseUtils.js';
 
-
 const firebaseConfig = {
-    apiKey: "AIzaSyCkfzmelEoI-qm5eL4TiKDklOX6XizrGbg",
-    authDomain: "help-potatoes.firebaseapp.com",
-    projectId: "help-potatoes",
-    storageBucket: "help-potatoes.appspot.com",
-    messagingSenderId: "11463795081",
-    appId: "1:11463795081:web:c699941c72cd05d539c158"
+  apiKey: 'AIzaSyCkfzmelEoI-qm5eL4TiKDklOX6XizrGbg',
+  authDomain: 'help-potatoes.firebaseapp.com',
+  projectId: 'help-potatoes',
+  storageBucket: 'help-potatoes.appspot.com',
+  messagingSenderId: '11463795081',
+  appId: '1:11463795081:web:c699941c72cd05d539c158',
 };
 
 // Initialize Firebase
@@ -44,92 +39,74 @@ const auth = getAuth(app);
 // Initilize FireStore
 const db = getFirestore(app);
 
-
-//funcion para registrar nuevo usuario
+// funcion para registrar nuevo usuario
 export const registerWithEmailFb = (email, password) => {
-    return createUserWithEmailAndPassword(auth, email, password)
+return createUserWithEmailAndPassword(auth, email, password)
 };
 
-//actualizar perfil de usuario registrado con email
- export const updateProfileWithEmailFb = (name,photo) => { 
-    return updateProfile(auth.currentUser, {
-        displayName: name,
-        photoURL: photo,
-    });
-};
- 
-//enviar email de verificación
-export const sendEmailFb = () => {
-    return sendEmailVerification(auth.currentUser);
+// actualizar perfil de usuario registrado con email
+export const updateProfileWithEmailFb = (name, photo) => { 
+  return updateProfile(auth.currentUser, {
+    displayName: name,
+    photoURL: photo,
+  });
 };
 
-//registarse con google (LogInWithGoogle too)
+// enviar email de verificación
+export const sendEmailFb = () => sendEmailVerification(auth.currentUser);
+
+// registarse con google (LogInWithGoogle too)
 const provider = new GoogleAuthProvider();
 
-export const registerWithGoogleFb = () => {
-    return signInWithPopup(auth, provider);
+export const registerWithGoogleFb = () => signInWithPopup(auth, provider);
+
+// actualizar perfil de usuario registrado con google
+export const updateProfileWithGoogleFb = (photo) => {
+  return updateProfile(auth.currentUser, {
+    photoURL: photo,
+  });
 };
 
- //actualizar perfil de usuario registrado con google
-export const updateProfileWithGoogleFb = (photo) => { 
-    return updateProfile(auth.currentUser, {
-        photoURL: photo,
-    });
-};
-
-//Iniciar sesión con email y contraseña
+// Iniciar sesión con email y contraseña
 export const loginFb = (email, password) => {
-    return signInWithEmailAndPassword(auth, email, password)     
+  return signInWithEmailAndPassword(auth, email, password)     
 };
 
-//función de cerrar sesión
-export const logOutFb = () => {
-    return signOut(auth);
-};
+// función de cerrar sesión
+export const logOutFb = () => signOut(auth);
 
-//Crear nuevo post y subir a la nube/data de firestore
+// Crear nuevo post y subir a la nube/data de firestore
 export const savePostfb = (input) => {
-    const user = auth.currentUser;
-    console.log(user);
-    return addDoc(collection(db, "post"), {
-        id: user.uid,
-        name: user.displayName,
-        email: user.email,
-        post: input,
-        photoURL: user.photoURL,
-        date: serverTimestamp()
-    });
+  const user = auth.currentUser;
+  return addDoc(collection(db, 'post'), {
+    id: user.uid,
+    name: user.displayName,
+    email: user.email,
+    post: input,
+    photoURL: user.photoURL,
+    date: serverTimestamp(),
+  });
 };
 
-// Obtener data de usuario 
+// Obtener data de usuario
 export const getCurrentUserFb = () => {
-    const user = auth.currentUser.uid;
-    return user;
+  const user = auth.currentUser.uid;
+  return user;
 };
-//actulizar data/post en tiempo real y en orden descendente
-export const onGetPostFb = (callback) => onSnapshot(query(collection(db, "post"), orderBy('date', 'desc')), callback);
+// actulizar data/post en tiempo real y en orden descendente
+export const onGetPostFb = (callback) => onSnapshot(query(collection(db, 'post'), orderBy('date', 'desc')), callback);
 
-//función para eliminar post
-export const deletePostFb = (id) => deleteDoc(doc(db, "post", id));
+// función para eliminar post
+export const deletePostFb = (id) => deleteDoc(doc(db, 'post', id));
 
-//Función para editar post 
-export const getPostForEditFb = (id) => getDoc(doc(db, "post", id));
+// Función para editar post
+export const getPostForEditFb = (id) => getDoc(doc(db, 'post', id));
 
-// //función para actualizar post v1
-export const updatePostFb = (id, newPost) => updateDoc(doc(db, "post", id), newPost);
+// función para actualizar post v1
+export const updatePostFb = (id, newPost) => updateDoc(doc(db, 'post', id), newPost);
 
-//función para actualizar post v2 con async y await
+// función para actualizar post v2 con async y await
 // export const updatePostFb = async (id, newPost) => {
 //     const result = await doc(db, "post", id);
 //     return updateDoc(result, newPost);
 // }
-
-//función para actualizar post  v3 intento con then y catch
-// export const updatePostFb = (id, newPost) => {
-//     const result = doc(db, "post", id)
-//     .then((res)=>{
-//         return res;
-//     })
-//     return updateDoc(result, newPost);
-// }
-
