@@ -123,7 +123,7 @@ describe('testing updatePostFb', () => {
   });
 });
 
-// Noveno test
+// noveno test
 describe('testing deletePostFb', () => {
   it('llama al serivico de firebase', async () => {
     const result = await deletePostFb('randomID');
@@ -142,7 +142,7 @@ describe('testing registerWithGoogleFb', () => {
   });
 });
 
-//  test
+// test
 describe('testing getCurrentUserFb', () => {
   it('llama al serivico de firebase', () => {
     const result = getCurrentUserFb();
@@ -159,4 +159,3 @@ describe('testing  logOutFb', () => {
     expect(signOut.mock.calls).toHaveLength(1);
   });
 });
-

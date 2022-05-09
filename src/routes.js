@@ -23,11 +23,7 @@ export const onNavigate = (pathname) => {
 
 const component = routes[window.location.pathname];
 
-<<<<<<< HEAD
-// onpopstate guarda el historial de navegacion dentro de la  url
-=======
 // onpopstate guarda el historial de navegacion dentro del url
->>>>>>> 22f8f62990f356375899352a1280488180cafd26
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname]();
   if (window.location.pathname === '/') {
@@ -39,4 +35,3 @@ window.onpopstate = () => {
 
 rootDiv.innerHTML = component();
 loginEvents();
-  //comentario final

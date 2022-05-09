@@ -29,13 +29,8 @@ export const auth = {
 export const createUserWithEmailAndPassword = jest.fn((auth, email, pass) => Promise.resolve(
   { user: { email: email } },
 ));
-<<<<<<< HEAD
-//  export const updateProfile = jest.fn((displayName, photoURL) => Promise.resolve({}));
-//  const obj = { displayName: displayName, photoURL: photoURL, }
-=======
 // export const updateProfile = jest.fn((displayName, photoURL) => Promise.resolve({}));
 // const obj = { displayName: displayName, photoURL: photoURL, }
->>>>>>> 22f8f62990f356375899352a1280488180cafd26
 export const updateProfile = jest.fn((currentUser, { displayName: displayName, photoURL: photoURL, }) => ({ }));
 
 export const sendEmailVerification = jest.fn((obj) => Promise.resolve({}));

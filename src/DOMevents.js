@@ -6,7 +6,7 @@ import { onNavigate } from './routes.js';
 import { registerWithEmail, registerWithGoogle, login, logOut, savePost, editStatus, updatePost, docId, changeEditStatus } from './lib/controller.js';
 
 export const loginEvents = () => {
-  // btn registrate en vista login
+  // btn registrate in login
   const registerOption = document.getElementById('registerP');
   registerOption.addEventListener('click', () => {
     onNavigate('/register');
@@ -124,4 +124,3 @@ export const homeEvents = () => {
     });
   }));
 };
-  //comentario final

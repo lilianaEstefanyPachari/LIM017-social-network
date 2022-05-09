@@ -15,11 +15,7 @@ export {
 }
   from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
-<<<<<<< HEAD
-// LINK  FIRESTORE
-=======
 // LINKS FIRESTORE
->>>>>>> 22f8f62990f356375899352a1280488180cafd26
 export {
   collection,
   addDoc,
