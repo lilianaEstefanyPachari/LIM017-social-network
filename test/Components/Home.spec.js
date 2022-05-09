@@ -1,6 +1,6 @@
 import { home } from '../../src/Components/Home.js';
 import { homeEvents } from '../../src/DOMevents.js';
-import { addDoc, signOut } from '../../src/lib/FirebaseUtils.js';
+import { signOut } from '../../src/lib/FirebaseUtils.js';
 jest.mock('../../src/lib/FirebaseUtils.js');
 jest.mock('../../src/routes.js');
 

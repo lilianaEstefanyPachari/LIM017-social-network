@@ -19,13 +19,4 @@ describe('testing login', () => {
     expect(document.getElementById('emptyInputPass').innerText).toBe('*Coloque su contraseña');
     console.log(signInWithEmailAndPassword.mock);
   });
-
-  // fit('muestra la vista register', () => {
-  //     document.body.innerHTML = '<div id="rootDiv"></div>';
-  //     document.getElementById('rootDiv').innerHTML = login();
-  //     loginEvents();
-  //     const btnBackRegister = document.getElementById('registerP');
-  //     btnBackRegister.dispatchEvent(new Event('click'));
-  //     expect(window.location.pathname).toEqual('/register');
-  //   });
 });

@@ -27,17 +27,4 @@ describe('testing register component', () => {
     expect(window.location.pathname).toEqual('/');
   });
 
-  // fit('si los valores son correctos llama a registerWithEmail', () => {
-  //   document.body.innerHTML = '<div id="rootDiv"></div>';
-  //   document.getElementById('rootDiv').innerHTML = register();
-  //   document.getElementById('inputName').value = 'alguien';
-  //   document.getElementById('inputEmail').value = 'alguien@gmail.com';
-  //   document.getElementById('inputPassword').value = '1234567';
-  //   document.getElementById('pape').src = './img/pape.png';
-  //   const buttonRegister = document.getElementById('buttonRegister');
-  //   registerEvents();
-  //   buttonRegister.dispatchEvent(new Event('click'));
-  //   console.log(registerWithEmail);
-  //   expect(registerWithEmail).toHaveBeenCalled();
-  // });
 });
