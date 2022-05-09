@@ -29,4 +29,4 @@ export const loginEvents = () => {
       document.getElementById('emptyInputPass').innerText = '*Coloque su contraseña'
     }
   };
-  
+  //comentario final
