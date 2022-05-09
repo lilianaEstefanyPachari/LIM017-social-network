@@ -31,12 +31,12 @@ const firebaseConfig = {
   appId: '1:11463795081:web:c699941c72cd05d539c158',
 };
 
-// Initialize Firebase
+// Initialize  Firebase
 const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
-// Initilize FireStore
+// Initilize  FireStore
 const db = getFirestore(app);
 
 // funcion para registrar nuevo usuario

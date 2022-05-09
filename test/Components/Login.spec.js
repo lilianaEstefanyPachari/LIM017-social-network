@@ -20,7 +20,11 @@ describe('testing login', () => {
     console.log(signInWithEmailAndPassword.mock);
   });
 
+<<<<<<< HEAD
+  //  it('muestra la vista register', () => {
+=======
   // fit('muestra la vista register', () => {
+>>>>>>> 22f8f62990f356375899352a1280488180cafd26
   //     document.body.innerHTML = '<div id="rootDiv"></div>';
   //     document.getElementById('rootDiv').innerHTML = login();
   //     loginEvents();
