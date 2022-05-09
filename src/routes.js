@@ -1,9 +1,8 @@
 // Este es el punto de entrada de tu aplicacion
-/* eslint-disable import/no-cycle */
+import { loginEvents, registerEvents } from './DOMevents.js';
 import { register } from './Components/register.js';
 import { login } from './Components/Login.js';
 import { home } from './Components/Home.js';
-import { loginEvents, registerEvents } from './DOMevents.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -19,12 +18,12 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  rootDiv.innerHTML = routes[pathname]();
+  return rootDiv.innerHTML = routes[pathname]();
 };
 
 const component = routes[window.location.pathname];
 
-// onpopstate guarda el historial de la navegacion dentro de la url
+// onpopstate guarda el historial de navegacion dentro del url
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname]();
   if (window.location.pathname === '/') {

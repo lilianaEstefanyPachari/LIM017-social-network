@@ -20,3 +20,4 @@ export const home = () => {
     </section>`;
   return homepage;
 };
+
