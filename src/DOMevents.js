@@ -13,7 +13,7 @@ export const loginEvents = () => {
     registerEvents();
   });
 
-  // btn de google para ingresar sesion con google
+  // btn de google para iniciar sesion con google
   const btnGoogle = document.getElementById('googleImgLogIn');
   btnGoogle.addEventListener('click', () => {
     registerWithGoogle(document.getElementById('papeLogIn').src);

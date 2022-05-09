@@ -72,7 +72,7 @@ describe('testing sendEmailFb', () => {
   });
 });
 
-// quinto test
+// Quinto test
 describe('testing loginFb', () => {
   it('funciona y recibe los argumentos correctos', async () => {
     const result = await loginFb('randomEmail@gmail.com', '1234567');
@@ -113,7 +113,7 @@ describe('testing getPostForEditFb', () => {
   });
 });
 
-// octavo test
+// Octavo test
 describe('testing updatePostFb', () => {
   it('llama al serivico de firebase', async () => {
     const result = await updatePostFb('randomID', { post: 'new update content' });

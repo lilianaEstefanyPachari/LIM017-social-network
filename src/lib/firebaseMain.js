@@ -44,7 +44,7 @@ export const registerWithEmailFb = (email, password) => {
 return createUserWithEmailAndPassword(auth, email, password)
 };
 
-// actualizar perfil de usuario registrado con email
+// actualizar el perfil de usuario registrado con email
 export const updateProfileWithEmailFb = (name, photo) => { 
   return updateProfile(auth.currentUser, {
     displayName: name,

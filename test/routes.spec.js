@@ -7,7 +7,7 @@ const fs = require ('fs');
 
 document.body.innerHTML = fs.readFileSync('./src/index.html');
 
-// importamos la funcion que vamos a testear
+// importamos la funcion que vamos a testear/ testing
 const { onNavigate } = require('../src/routes.js');
 
 import { register } from '../src/Components/register.js';
