@@ -24,7 +24,7 @@ export const onNavigate = (pathname) => {
 
 const component = routes[window.location.pathname];
 
-// onpopstate guarda el historial de navegacion dentro del url
+// onpopstate guarda el historial de la navegacion dentro de la url
 window.onpopstate = () => {
   rootDiv.innerHTML = routes[window.location.pathname]();
   if (window.location.pathname === '/') {

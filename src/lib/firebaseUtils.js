@@ -14,7 +14,7 @@ export {
   signOut,
 } from 'https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js';
 
-// LINKS FIRESTORE
+// LINK FIRESTORE
 export {
   collection,
   addDoc,

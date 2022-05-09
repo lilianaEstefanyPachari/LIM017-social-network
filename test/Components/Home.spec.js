@@ -6,7 +6,7 @@ import { signOut } from '../../src/lib/firebaseUtils.js';
 jest.mock('../../src/lib/FirebaseUtils.js');
 jest.mock('../../src/routes.js');
 
-// test de prueba, aun no testea nada
+// test de prueba
 describe('Home', () => {
   it('debería llamar a la función mock de CERRAR SESIÓN', () => {
     document.body.innerHTML = '<div id="rootDiv"></div>';
