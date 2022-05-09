@@ -22,7 +22,7 @@ describe('Testing onNavigate', () => {
   const pathHome = '/home';
 
   it('Debe renderizar la vista register', () => {
-  // document.body.innerHTML = '<div id="root" ></div>';
+  // document.body.innerHTML = '<div id="root"></div>';
   // const rootDiv = document.getElementById('root');
     const registerComponent = register();
     expect(onNavigate(pathRegister)).toEqual(registerComponent);
