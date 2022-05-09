@@ -72,7 +72,7 @@ describe('testing sendEmailFb', () => {
   });
 });
 
-// Quinto test
+// quinto test
 describe('testing loginFb', () => {
   it('funciona y recibe los argumentos correctos', async () => {
     const result = await loginFb('randomEmail@gmail.com', '1234567');
@@ -113,7 +113,7 @@ describe('testing getPostForEditFb', () => {
   });
 });
 
-// Octavo test
+// octavo test
 describe('testing updatePostFb', () => {
   it('llama al serivico de firebase', async () => {
     const result = await updatePostFb('randomID', { post: 'new update content' });
@@ -159,3 +159,4 @@ describe('testing  logOutFb', () => {
     expect(signOut.mock.calls).toHaveLength(1);
   });
 });
+

@@ -27,7 +27,11 @@ describe('testing register component', () => {
     expect(window.location.pathname).toEqual('/');
   });
 
+<<<<<<< HEAD
   //  it('si los valores son correctos llama a registerWithEmail', () => {
+=======
+  // fit('si los valores son correctos llama a registerWithEmail', () => {
+>>>>>>> 22f8f62990f356375899352a1280488180cafd26
   //   document.body.innerHTML = '<div id="rootDiv"></div>';
   //   document.getElementById('rootDiv').innerHTML = register();
   //   document.getElementById('inputName').value = 'alguien';

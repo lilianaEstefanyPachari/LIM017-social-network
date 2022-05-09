@@ -7,7 +7,7 @@ const fs = require ('fs');
 
 document.body.innerHTML = fs.readFileSync('./src/index.html');
 
-// importamos la funcion que vamos a testear/ testing
+// importamos la funcion que vamos a testear
 const { onNavigate } = require('../src/routes.js');
 
 import { register } from '../src/Components/register.js';
@@ -37,3 +37,4 @@ describe('Testing onNavigate', () => {
     expect(onNavigate(pathHome)).toEqual(homeComponent);
   });
 });
+

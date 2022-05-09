@@ -48,7 +48,11 @@ export const registerWithEmail = (email, password, name, photo) => {
       }
     });
 };
+<<<<<<< HEAD
 // variable  global para el estado de post
+=======
+// variable global para estado de post
+>>>>>>> 22f8f62990f356375899352a1280488180cafd26
 export let editStatus = false;
 export const changeEditStatus = () => {
   editStatus = false;

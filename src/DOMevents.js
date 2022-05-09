@@ -13,7 +13,7 @@ export const loginEvents = () => {
     registerEvents();
   });
 
-  // btn de google para iniciar sesion con google
+  // btn de google para ingresar sesion con google
   const btnGoogle = document.getElementById('googleImgLogIn');
   btnGoogle.addEventListener('click', () => {
     registerWithGoogle(document.getElementById('papeLogIn').src);
@@ -101,8 +101,9 @@ export const homeEvents = () => {
   });
   // evento para abrir ventana modal de opciones (editar/eliminar)
   const clickOpenModalOptions = document.querySelectorAll('.openOptions');
-  clickOpenModalOptions.forEach((threePoins) => {
-    threePoins.addEventListener('click', (e) => {
+  clickOpenModalOptions.forEach(threePoins => {
+    threePoins.addEventListener('click', e => {
+      console.log('estoy dando click');
       document.getElementById(e.target.dataset.id).style.display = 'block';
     });
   });
