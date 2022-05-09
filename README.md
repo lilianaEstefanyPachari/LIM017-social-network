@@ -1,14 +1,13 @@
 # Creando una Red Social
 # Help Potataoes
 ### Definición:
-Help Potatoes es una red social guiada a padres, madres, docentes o personas que convivan de cerca con niños y desean comparar o comaprtir experiencias, contrar formas de resolver un problema, bsucar nuevas estrategias de crianza o conectar con otros padres y madres.
+Help Potatoes es una red social guiada a padres, madres, docentes o personas que convivan de cerca con niños y desean comapartir experiencias, encontrar formas de resolver un problema, buscar nuevas estrategias de crianza o conectar con otros padres y madres.
 ## Público objetivo e historias de usuario
 Para determianr si nuestra red social sería de interés se realizo una serie de encuestas a distintos padres y madres de familia (link: https://docs.google.com/forms/d/e/1FAIpQLSfT1Kk3URG53S0Akjz9CyZtJhkO9QcdWIy2sKcP1aFW-l_mig/viewform). Según las respuestas y comentarios se determinaron las **historias de usuario** que se trabajarían a lo largo de los sprints:
 - **HU1**: El usuario necesita poder logearse en nuestra red social, con un correo existente o por medio de un correo de google. Se le debe marcar al usuario si algún campo a rellenar se encuentra vacío.
-- **HU2: **El usuario debe poder visualizar su nombre de usuario e ícono elegido en pantalla de homepage de la red social y debe poder hacer una publicación en forma de comentario.
+- **HU2: **El usuario debe poder visualizar su nombre de usuario e ícono elegido en pantalla de homepage de la red social y debe poder hacer una publicación.
 - **HU3:** El usuario debe poder editar, eliminar la publicación, al presionar ciertos iconos de la pantalla.
 - **HU4:** El usuario debe poder salir de la red social al presioanr un ícono.
-- **HU5:** El usuario debe poder recibir likes, uno por persona y que estos sean contabilizados.
 
 ## Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
 ### Baja fidelidad:
