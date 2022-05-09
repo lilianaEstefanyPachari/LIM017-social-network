@@ -1,8 +1,9 @@
 // Este es el punto de entrada de tu aplicacion
-import { loginEvents, registerEvents } from './DOMevents.js';
+/* eslint-disable import/no-cycle */
 import { register } from './Components/register.js';
 import { login } from './Components/Login.js';
 import { home } from './Components/Home.js';
+import { loginEvents, registerEvents } from './DOMevents.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -18,7 +19,7 @@ export const onNavigate = (pathname) => {
     pathname,
     window.location.origin + pathname,
   );
-  return rootDiv.innerHTML = routes[pathname]();
+  rootDiv.innerHTML = routes[pathname]();
 };
 
 const component = routes[window.location.pathname];
