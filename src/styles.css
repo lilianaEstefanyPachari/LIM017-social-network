@@ -59,13 +59,18 @@ body {
     flex-direction: column;
 }
 
+
 .inputContainer input {
-    margin-bottom: 29px;
+    /* margin-bottom: 29px; */
     height: 40px;
     background-color: rgba(204, 233, 251, 1);
     border: none;
     border-radius: 9px;
     padding-left: 10px;
+}
+
+#inputPass {
+    margin-top: 19px;
 }
 
 
@@ -78,7 +83,7 @@ body {
     background: #8CD1EF;
     border: none;
     border-radius: 9px;
-    margin-top: 3px;
+    margin-top: 19px;
 }
 
 
@@ -134,9 +139,16 @@ body {
     align-items: center;
     justify-content: center;
     height: 100%;
+    margin-top: 20px;
 }
-
+.helpPotatoesDescripRegister{
+    display:none;
+}
+.tittleRegister{
+    text-align: center;
+}
 .subRegisterContainerMain {
+    margin-top: 20px;
     height: 90%;
     width: 70%;
     display: flex;
@@ -175,8 +187,8 @@ body {
     font-weight: 600;
     font-size: 18px;
     line-height: 24px;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 12px;
+    margin-bottom: 12px;
 }
 
 .pIconRegister {
@@ -352,6 +364,7 @@ nav {
 
 .logOutIcon {
     width: 20px;
+    height: 27px;
 }
 
 
@@ -466,7 +479,9 @@ nav {
         background-repeat: no-repeat;
         background-position: center;
         background-size: 77%;
+        display:block;
     }
+
     .loginSubContainer {
         grid-area: login;
         height: 100%;
@@ -481,7 +496,7 @@ nav {
         border: none;
     }
     .buttonnextPage {
-        margin-top: 0px;
+        margin-top: 19px;
     }
     .inputContainer {
         width: 80%;
@@ -550,9 +565,7 @@ nav {
     .postContainer {
         width: 75%;
     }
-    .postInput {
-        width: 100%;
-    }
+    
     .containerSeePost {
         margin: 0 20px 20px 20px;
     }
