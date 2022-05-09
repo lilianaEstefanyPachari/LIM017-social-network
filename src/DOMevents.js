@@ -101,9 +101,8 @@ export const homeEvents = () => {
   });
   // evento para abrir ventana modal de opciones (editar/eliminar)
   const clickOpenModalOptions = document.querySelectorAll('.openOptions');
-  clickOpenModalOptions.forEach(threePoins => {
-    threePoins.addEventListener('click', e => {
-      console.log('estoy dando click');
+  clickOpenModalOptions.forEach((threePoins) => {
+    threePoins.addEventListener('click', (e) => {
       document.getElementById(e.target.dataset.id).style.display = 'block';
     });
   });

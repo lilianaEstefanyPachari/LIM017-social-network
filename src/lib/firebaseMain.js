@@ -41,12 +41,12 @@ const db = getFirestore(app);
 
 // funcion para registrar nuevo usuario
 export const registerWithEmailFb = (email, password) => {
-return createUserWithEmailAndPassword(auth, email, password)
+  createUserWithEmailAndPassword(auth, email, password);
 };
 
 // actualizar perfil de usuario registrado con email
-export const updateProfileWithEmailFb = (name, photo) => { 
-  return updateProfile(auth.currentUser, {
+export const updateProfileWithEmailFb = (name, photo) => {
+  updateProfile(auth.currentUser, {
     displayName: name,
     photoURL: photo,
   });
@@ -62,14 +62,14 @@ export const registerWithGoogleFb = () => signInWithPopup(auth, provider);
 
 // actualizar perfil de usuario registrado con google
 export const updateProfileWithGoogleFb = (photo) => {
-  return updateProfile(auth.currentUser, {
+  updateProfile(auth.currentUser, {
     photoURL: photo,
   });
 };
 
 // Iniciar sesión con email y contraseña
 export const loginFb = (email, password) => {
-  return signInWithEmailAndPassword(auth, email, password)     
+  return signInWithEmailAndPassword(auth, email, password);
 };
 
 // función de cerrar sesión
