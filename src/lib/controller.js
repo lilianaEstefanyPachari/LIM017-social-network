@@ -48,7 +48,7 @@ export const registerWithEmail = (email, password, name, photo) => {
       }
     });
 };
-// variable global para el estado de post
+// variable global para estado de post
 export let editStatus = false;
 export const changeEditStatus = () => {
   editStatus = false;
